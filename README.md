@@ -4,6 +4,22 @@ This app will help young people in Mozambique learn Portuguese more easily, espe
 
 I chose to use react native with Expo CLI (not React Native CLI) to make it easier
 
+1. Initialize the basic expo application
+
+npx create-expo-app@latest
+
+2. Login to expo:
+
+npx expo login
+
+3. Start application with Fast Refresh
+
+npx expo start
+
+---
+
+OLD -> Fast Refresh didn't work on docker. I should run on my pc, develop the first version, than 'dockerise' it
+
 # Run docker container on node
 
 docker run -it --entrypoint sh -p 8080:80 --mount type=bind,source=${PWD}\changanaDictionary,target=/app/Changana-Portuguese-Dicionary --name appDictionary node:22-alpine
