@@ -33,7 +33,13 @@ export default function Index() {
 			const response = await fetch(asset.uri);
 			const text = await response.text();
 			const parsed = Papa.parse(text, { header: true });
-			setData(parsed.data);
+			const data = parsed.data;
+
+			if (data[data.length - 1].index === "") {
+				data.pop(); // Remove the last element if it's an empty object
+			}
+			console.log(data[data.length - 1]);
+			setData(data);
 		} catch (error) {
 			setError(error instanceof Error ? error : new Error(String(error)));
 			console.error("Error reading CSV asset:", error);
