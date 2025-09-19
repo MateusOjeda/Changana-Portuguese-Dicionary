@@ -14,7 +14,7 @@ import { Asset } from "expo-asset";
 import Papa from "papaparse";
 import orderBy from "lodash/orderBy";
 import filter from "lodash/filter";
-import { Link, useRouter } from "expo-router";
+import { Link, router } from "expo-router";
 
 // const API_ENDPOINT = "https://randomuser.me/api/?results=30";
 
@@ -88,6 +88,22 @@ export default function Index() {
 		);
 	}
 
+	const runSearch = (query: string) => {
+		const formattedQuery = query.toLowerCase();
+		const filteredData = filter(fullData, (word: DictionaryItem) => {
+			return contains(word, formattedQuery);
+		});
+
+		return orderBy(
+			filteredData,
+			[
+				(w: DictionaryItem) => (w.word.startsWith(query) ? 1 : 0), // rank 1 if starts with query
+				(w: DictionaryItem) => w.word, // then alphabetically
+			],
+			["desc", "asc"] // 1 first, then alphabetic
+		);
+	};
+
 	const handleSearch = (query: string) => {
 		setSearchQuery(query);
 
@@ -96,21 +112,18 @@ export default function Index() {
 			return;
 		}
 
-		const formattedQuery = query.toLowerCase();
-		const filteredData = filter(fullData, (word: DictionaryItem) => {
-			return contains(word, formattedQuery);
-		});
-
-		const rankedData = orderBy(
-			filteredData,
-			[
-				(w: DictionaryItem) => (w.word.startsWith(query) ? 1 : 0), // rank 1 if starts with query
-				(w: DictionaryItem) => w.word, // then alphabetically
-			],
-			["desc", "asc"] // 1 first, then alphabetic
-		);
+		const rankedData = runSearch(query);
 
 		setData(rankedData.slice(0, 15));
+	};
+
+	const handleSubmit = (query: string) => {
+		const rankedData = runSearch(query);
+
+		router.push({
+			pathname: "/meaning/[id]",
+			params: { id: rankedData[0].index, ...rankedData[0] },
+		});
 	};
 
 	const contains = ({ word }: DictionaryItem, query: string) => {
@@ -144,8 +157,6 @@ export default function Index() {
 		</View>
 	);
 
-	const router = useRouter();
-
 	return (
 		<SafeAreaView style={styles.container}>
 			<TextInput
@@ -156,6 +167,7 @@ export default function Index() {
 				autoCorrect={false}
 				value={searchQuery}
 				onChangeText={(query) => handleSearch(query)}
+				onSubmitEditing={(e) => handleSubmit(e.nativeEvent.text)}
 			/>
 			<FlatList
 				data={data}
