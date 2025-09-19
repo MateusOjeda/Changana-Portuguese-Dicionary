@@ -1,6 +1,7 @@
 import { SetStateAction, useEffect, useState } from "react";
 import {
 	ActivityIndicator,
+	Button,
 	FlatList,
 	Image,
 	StyleSheet,
@@ -13,6 +14,7 @@ import { Asset } from "expo-asset";
 import Papa from "papaparse";
 import orderBy from "lodash/orderBy";
 import filter from "lodash/filter";
+import { Link, useRouter } from "expo-router";
 
 // const API_ENDPOINT = "https://randomuser.me/api/?results=30";
 
@@ -29,7 +31,9 @@ export default function Index() {
 		try {
 			// Load the asset
 			setIsLoading(true);
-			const asset = Asset.fromModule(require("../assets/data.csv"));
+			const asset = Asset.fromModule(
+				require("../assets/data_provisory.csv")
+			);
 			await asset.downloadAsync();
 			const response = await fetch(asset.uri);
 			const text = await response.text();
@@ -116,18 +120,31 @@ export default function Index() {
 		return false;
 	};
 
-	type ItemProps = { title: string };
+	type ItemProps = { item: DictionaryItem };
 
 	type DictionaryItem = {
 		index: string;
 		word: string;
+		title: string;
+		meaning: string;
 	};
 
-	const Item = ({ title }: ItemProps) => (
+	const Item = ({ item }: ItemProps) => (
 		<View style={styles.item}>
-			<Text style={styles.title}>{title}</Text>
+			<Link
+				href={{
+					pathname: "/meaning/[id]",
+					params: { id: item.index, ...item },
+				}}
+				push
+				asChild
+			>
+				<Text style={styles.title}>{item.word}</Text>
+			</Link>
 		</View>
 	);
+
+	const router = useRouter();
 
 	return (
 		<SafeAreaView style={styles.container}>
@@ -142,13 +159,13 @@ export default function Index() {
 			/>
 			<FlatList
 				data={data}
-				renderItem={({ item }) => <Item title={item.word} />}
+				renderItem={({ item }) => <Item item={item} />}
 				keyExtractor={(item) => item.index}
 			/>
-			<Image
+			{/* <Image
 				source={require("../assets/images/icon.png")}
 				style={{ width: 40, height: 40 }}
-			></Image>
+			></Image> */}
 		</SafeAreaView>
 	);
 }
