@@ -18,6 +18,11 @@ npx expo start
 
 ---
 
+Obs.: To run sdk Android on windows, I had to install it on another disk, so I should write this env:
+$env:ANDROID_HOME="D:\\AndroidStudioSdk"
+
+---
+
 OLD -> Fast Refresh didn't work on docker. I should run on my pc, develop the first version, than 'dockerise' it
 
 # Run docker container on node
