@@ -1,13 +1,14 @@
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
 	ActivityIndicator,
-	Button,
+	Pressable,
 	FlatList,
 	Image,
 	StyleSheet,
 	Text,
 	TextInput,
 	View,
+	Keyboard,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Asset } from "expo-asset";
@@ -120,6 +121,11 @@ export default function Index() {
 	const handleSubmit = (query: string) => {
 		const rankedData = runSearch(query);
 
+		if (rankedData.length === 0) {
+			router.push({ pathname: "/notfound" });
+			return;
+		}
+
 		router.push({
 			pathname: "/meaning/[id]",
 			params: { id: rankedData[0].index, ...rankedData[0] },
@@ -144,16 +150,16 @@ export default function Index() {
 
 	const Item = ({ item }: ItemProps) => (
 		<View style={styles.item}>
-			<Link
-				href={{
-					pathname: "/meaning/[id]",
-					params: { id: item.index, ...item },
+			<Pressable
+				onPress={() => {
+					router.push({
+						pathname: "/meaning/[id]",
+						params: { id: item.index, ...item },
+					});
 				}}
-				push
-				asChild
 			>
 				<Text style={styles.title}>{item.word}</Text>
-			</Link>
+			</Pressable>
 		</View>
 	);
 
@@ -173,6 +179,7 @@ export default function Index() {
 				data={data}
 				renderItem={({ item }) => <Item item={item} />}
 				keyExtractor={(item) => item.index}
+				keyboardShouldPersistTaps="always"
 			/>
 			{/* <Image
 				source={require("../assets/images/icon.png")}

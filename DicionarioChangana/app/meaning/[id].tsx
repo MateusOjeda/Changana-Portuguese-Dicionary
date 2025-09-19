@@ -15,13 +15,3 @@ export default function WordMeaning() {
 		</View>
 	);
 }
-
-// import { View, Text } from "react-native";
-
-// export default function Index() {
-// 	return (
-// 		<View>
-// 			<Text>Hey there</Text>
-// 		</View>
-// 	);
-// }
