@@ -11,6 +11,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Asset } from "expo-asset";
 import Papa from "papaparse";
+import orderBy from "lodash/orderBy";
+import filter from "lodash/filter";
 
 // const API_ENDPOINT = "https://randomuser.me/api/?results=30";
 
@@ -18,38 +20,37 @@ export default function Index() {
 	console.log("app executed");
 
 	const [isLoading, setIsLoading] = useState(false);
-	const [data, setData] = useState([]);
+	const [data, setData] = useState<DictionaryItem[]>([]);
 	const [error, setError] = useState<Error | null>(null);
-	const [fullData, setFullData] = useState([]);
+	const [fullData, setFullData] = useState<DictionaryItem[]>([]);
 	const [searchQuery, setSearchQuery] = useState("");
 
 	async function readCsvAsset() {
 		try {
 			// Load the asset
-			const asset = Asset.fromModule(
-				require("../assets/data_provisory.csv")
-			);
+			setIsLoading(true);
+			const asset = Asset.fromModule(require("../assets/data.csv"));
 			await asset.downloadAsync();
 			const response = await fetch(asset.uri);
 			const text = await response.text();
 			const parsed = Papa.parse(text, { header: true });
-			const data = parsed.data;
+			const data = parsed.data as DictionaryItem[];
 
-			if (data[data.length - 1].index === "") {
+			if (data.length > 0 && data[data.length - 1].index === "") {
 				data.pop(); // Remove the last element if it's an empty object
 			}
-			console.log(data[data.length - 1]);
-			setData(data);
+			// setData(data);
+			setFullData(data);
+			setIsLoading(false);
 		} catch (error) {
+			setIsLoading(false);
 			setError(error instanceof Error ? error : new Error(String(error)));
 			console.error("Error reading CSV asset:", error);
 		}
 	}
 
 	useEffect(() => {
-		setIsLoading(true);
 		readCsvAsset();
-		setIsLoading(false);
 	}, []);
 
 	if (isLoading) {
@@ -83,26 +84,44 @@ export default function Index() {
 		);
 	}
 
-	const handleSearch = (query: SetStateAction<string>) => {
+	const handleSearch = (query: string) => {
 		setSearchQuery(query);
+
+		if (query === "") {
+			setData([]);
+			return;
+		}
+
+		const formattedQuery = query.toLowerCase();
+		const filteredData = filter(fullData, (word: DictionaryItem) => {
+			return contains(word, formattedQuery);
+		});
+
+		const rankedData = orderBy(
+			filteredData,
+			[
+				(w: DictionaryItem) => (w.word.startsWith(query) ? 1 : 0), // rank 1 if starts with query
+				(w: DictionaryItem) => w.word, // then alphabetically
+			],
+			["desc", "asc"] // 1 first, then alphabetic
+		);
+
+		setData(rankedData.slice(0, 15));
 	};
 
-	// const DATA = [
-	// 	{
-	// 		id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-	// 		title: "First Item",
-	// 	},
-	// 	{
-	// 		id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-	// 		title: "Second Item",
-	// 	},
-	// 	{
-	// 		id: "58694a0f-3da1-471f-bd96-145571e29d72",
-	// 		title: "Third Item",
-	// 	},
-	// ];
+	const contains = ({ word }: DictionaryItem, query: string) => {
+		if (word.toLowerCase().includes(query)) {
+			return true;
+		}
+		return false;
+	};
 
 	type ItemProps = { title: string };
+
+	type DictionaryItem = {
+		index: string;
+		word: string;
+	};
 
 	const Item = ({ title }: ItemProps) => (
 		<View style={styles.item}>
@@ -114,14 +133,13 @@ export default function Index() {
 		<SafeAreaView style={styles.container}>
 			<TextInput
 				style={styles.textinput}
-				placeholder="Search"
+				placeholder="Buscar palavra em português..."
 				clearButtonMode="always"
 				autoCapitalize="none"
 				autoCorrect={false}
 				value={searchQuery}
 				onChangeText={(query) => handleSearch(query)}
 			/>
-			{/* <Text>{data}</Text> */}
 			<FlatList
 				data={data}
 				renderItem={({ item }) => <Item title={item.word} />}
@@ -151,12 +169,14 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 	},
 	item: {
-		backgroundColor: "#f9c2ff",
-		padding: 20,
-		marginVertical: 8,
+		backgroundColor: "#d4ffdeff",
+		padding: 10,
+		marginVertical: 3,
 		marginHorizontal: 16,
 	},
 	title: {
-		fontSize: 32,
+		fontSize: 17,
+		fontWeight: "400",
+		marginLeft: 10,
 	},
 });
