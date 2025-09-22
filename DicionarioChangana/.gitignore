@@ -1,6 +1,7 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
-*/data_provisory.csv
+*/data_mock.csv
+*/daily_word_mock.csv
 
 # dependencies
 node_modules/

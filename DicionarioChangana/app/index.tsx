@@ -5,10 +5,12 @@ import {
 	Text,
 	TextInput,
 	View,
+	StyleSheet,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDictionaryData } from "../hooks/useDictionaryData";
 import { DictionaryListItem } from "../components/DictionaryListItem";
+import { DailyWord } from "../components/DailyWord";
 import { runSearch } from "../utils/searchUtils";
 import { DictionaryItem } from "../types";
 import { router } from "expo-router";
@@ -25,7 +27,7 @@ export default function Index() {
 			return;
 		}
 		const rankedData = runSearch(fullData, query);
-		setData(rankedData.slice(0, 15));
+		setData(rankedData.slice(0, 8));
 	};
 
 	const handleSubmit = (query: string) => {
@@ -72,7 +74,7 @@ export default function Index() {
 	}
 
 	return (
-		<SafeAreaView style={{ flex: 1, marginHorizontal: 20 }}>
+		<SafeAreaView style={styles.container}>
 			<TextInput
 				style={{
 					paddingHorizontal: 20,
@@ -95,7 +97,30 @@ export default function Index() {
 				renderItem={({ item }) => <DictionaryListItem item={item} />}
 				keyExtractor={(item) => item.index}
 				keyboardShouldPersistTaps="always"
+				style={styles.flatlist}
 			/>
+			<Text style={styles.title}>Palavra diária</Text>
+			<DailyWord></DailyWord>
 		</SafeAreaView>
 	);
 }
+
+const styles = StyleSheet.create({
+	container: {
+		marginHorizontal: 20,
+		flex: 1,
+		flexDirection: "column",
+		justifyContent: "flex-start",
+	},
+	flatlist: {
+		position: "absolute",
+		zIndex: 1,
+		marginTop: 90,
+	},
+	title: {
+		fontSize: 20,
+		fontWeight: "600",
+		marginTop: 20,
+		marginBottom: 10,
+	},
+});
