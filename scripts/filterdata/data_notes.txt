@@ -1,0 +1,54 @@
+palavra | palávra esta vindo desse jeito e dando problema
+
+absíntio
+absinto s. m. bzányí bzá matluka yá kubává (vu-ma) gwányi rá matluka yá kubává (ri-ma), xibahá (xi-svi).
+
+correto:
+absíntio s. m. bzányí bzá matluka yá kubává (vu-ma) gwányi rá matluka yá kubává (ri-ma), xibahá (xi-svi).
+absinto s. m. bzányí bzá matluka yá kubává (vu-ma) gwányi rá matluka yá kubává (ri-ma), xibahá (xi-svi).
+
+ou 
+
+absíntio
+s. m. bzányí bzá matluka yá kubává (vu-ma) gwányi rá matluka yá kubává (ri-ma), xibahá (xi-svi).
+absinto
+s. m. bzányí bzá matluka yá kubává (vu-ma) gwányi rá matluka yá kubává (ri-ma), xibahá (xi-svi).
+
+----------------
+
+As vezes esta vindo assim:
+absíntio
+s. m. bzányí bzá matluka yá kubává (vu-ma) gwányi rá matluka yá kubává (ri-ma), xibahá (xi-svi).
+Às vezes assim:
+absíntio s. m. bzányí bzá matluka yá kubává (vu-ma) gwányi rá matluka yá kubává (ri-ma), xibahá (xi-svi).
+
+
+----
+ARRUMADO
+Retirar Letras iniciais 
+A
+B
+C
+
+----
+
+tem muitas palavras duplicadas
+
+---
+
+Tem uns números no final de certas linhas
+Assim 132.
+Fazer no python
+
+---
+
+ARRUMADO
+ deve ter palavra que esta em uma linha, mas deveria estar em duas
+açaimo | açaime s. m. xihlótwana |xihlótıvani (xi-svi).
+
+---
+
+tem algumas linhas que o "1. " sumiu
+
+O arquivo "dicionario_compressed.pdf" é o original escaneado com palavras de um dicionário português para changana. O outro deveria ser a cópia identica, mas creio que aconteceram alguns erros de transcrição, portanto eu gostaria de ajuda para identificá-los. 
+Pode colocar aqui os 50 erros mais graves de transcrição? Que seriam os que prejudicariam o entendimento das palavras?
