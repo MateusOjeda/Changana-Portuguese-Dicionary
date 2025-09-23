@@ -21,10 +21,12 @@ export function DictionaryListItem({ item }: { item: DictionaryItem }) {
 
 const styles = StyleSheet.create({
 	item: {
-		backgroundColor: "#d4ffdeff",
+		backgroundColor: "#fff",
+		borderColor: "#ccc",
+		borderWidth: 1,
+		borderTopWidth: 0,
 		padding: 10,
-		marginVertical: 3,
-		marginHorizontal: 16,
+		height: 50,
 	},
 	title: {
 		fontSize: 17,

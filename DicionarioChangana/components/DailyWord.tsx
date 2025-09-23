@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Platform } from "react-native";
 import { useDailyWord } from "../hooks/useDailyWord";
 
 export function DailyWord() {
@@ -14,15 +14,30 @@ export function DailyWord() {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: "#fffb8aff",
-		padding: 10,
-		marginVertical: 3,
-		marginHorizontal: 16,
+		...Platform.select({
+			ios: {
+				backgroundColor: "#fff",
+				borderRadius: 8,
+				padding: 10,
+				shadowColor: "#000",
+				shadowOffset: { width: 0, height: 2 },
+				shadowOpacity: 0.2,
+				shadowRadius: 4,
+			},
+			android: {
+				backgroundColor: "#fff",
+				borderRadius: 8,
+				padding: 10,
+				elevation: 4,
+				shadowColor: "#000",
+			},
+		}),
 	},
 	title: {
-		fontSize: 17,
-		fontWeight: "400",
+		fontSize: 20,
+		fontWeight: "500",
 		marginLeft: 10,
+		color: "#004284ff",
 	},
 	meaning: {
 		fontSize: 14,
