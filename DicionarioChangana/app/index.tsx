@@ -9,6 +9,7 @@ import {
 	TouchableOpacity,
 	TouchableWithoutFeedback,
 	Keyboard,
+	Image,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDictionaryData } from "../hooks/useDictionaryData";
@@ -58,7 +59,7 @@ export default function Index() {
 		}
 		router.push({
 			pathname: "/meaning/[id]",
-			params: { id: rankedData[0].index, ...rankedData[0] },
+			params: { ...rankedData[0] },
 		});
 	};
 
@@ -91,9 +92,12 @@ export default function Index() {
 					alignItems: "center",
 				}}
 			>
-				<Text style={{ fontSize: 18, textAlign: "center" }}>
-					Erro coletando os dados. Por favor contate
-					mateus.ojd@gmail.com
+				<Text
+					style={{ fontSize: 18, textAlign: "center" }}
+					numberOfLines={10}
+				>
+					{/* Erro coletando os dados. */}
+					{String(error)}
 				</Text>
 			</View>
 		);
@@ -102,6 +106,15 @@ export default function Index() {
 	return (
 		<SafeAreaView style={styles.container}>
 			<View style={styles.inputContainer}>
+				<Image
+					source={require("../assets/images/icon-landing.png")}
+					style={{
+						width: "100%",
+						height: 60,
+						marginBottom: 5,
+					}}
+					resizeMode="contain"
+				/>
 				<TextInput
 					ref={inputRef}
 					style={[styles.input, focused && styles.focusedInput]}
@@ -131,12 +144,7 @@ export default function Index() {
 						onPress={handleOverlayPress}
 						style={styles.chevronLeftButton}
 					>
-						<Entypo
-							style={styles.chevronLeft}
-							name="chevron-left"
-							size={30}
-							color="#666"
-						/>
+						<Entypo name="chevron-left" size={30} color="#666" />
 					</TouchableOpacity>
 				) : (
 					<Entypo
@@ -155,7 +163,7 @@ export default function Index() {
 						renderItem={({ item }) => (
 							<DictionaryListItem item={item} />
 						)}
-						keyExtractor={(item) => item.index}
+						keyExtractor={(item) => item.id.toString()}
 						keyboardShouldPersistTaps="always"
 						style={styles.flatlist}
 						contentContainerStyle={{
@@ -184,26 +192,25 @@ export default function Index() {
 						<Text style={styles.title}>Palavra do dia</Text>
 						<Text>{useLocalDate()}</Text>
 					</View>
-					<DailyWord></DailyWord>
+					{!isLoading && fullData.length > 0 && (
+						<DailyWord dictionaryData={fullData} />
+					)}
 				</View>
 
 				<View style={{ marginTop: 20, paddingHorizontal: 16 }}>
 					<Text style={{ ...styles.title, marginBottom: 10 }}>
 						Melhore seu vocabulário
 					</Text>
-					{/* <DailyWord></DailyWord> */}
 				</View>
 				<View style={{ marginTop: 20, paddingHorizontal: 16 }}>
 					<Text style={{ ...styles.title, marginBottom: 10 }}>
 						Favoritas
 					</Text>
-					{/* <DailyWord></DailyWord> */}
 				</View>
 				<View style={{ marginTop: 20, paddingHorizontal: 16 }}>
 					<Text style={{ ...styles.title, marginBottom: 10 }}>
 						Mais Pesquisadas
 					</Text>
-					{/* <DailyWord></DailyWord> */}
 				</View>
 			</View>
 
@@ -217,7 +224,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		flexDirection: "column",
 		justifyContent: "flex-start",
-		backgroundColor: "#cafffeff",
+		backgroundColor: "#e6f5ee",
 	},
 	allContent: {
 		backgroundColor: "#f7f6f6ff",
@@ -257,27 +264,21 @@ const styles = StyleSheet.create({
 	clearButton: {
 		padding: 4,
 		position: "absolute",
-		top: 10,
+		top: 75,
 		right: 10,
 	},
 	chevronLeftButton: {
 		position: "absolute",
-		top: -2,
-		left: -4,
+		top: 76,
+		left: 7,
 	},
 	magnifyingGlass: {
 		position: "absolute",
-		top: 13,
-		left: 10,
-	},
-	chevronLeft: {
-		position: "absolute",
-		top: 12,
+		top: 78,
 		left: 10,
 	},
 	overlay: {
 		...StyleSheet.absoluteFillObject,
-		backgroundColor: "rgba(0,0,0,0.3)", // transparent gray
 		zIndex: 1,
 	},
 	fakeNavBar: {

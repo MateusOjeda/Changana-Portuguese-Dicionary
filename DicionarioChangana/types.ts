@@ -1,6 +1,7 @@
 export type DictionaryItem = {
-	index: string,
-	word: string,
-	title: string,
-	meaning: string,
+	id: number;
+	word: string;
+	title: string;
+	meaning: string;
+	dailyKey?: string;
 };

@@ -1,65 +1,47 @@
-import pandas as pd
+import json
 from datetime import datetime
+from datetime import datetime, timedelta
+import random
 
-df = pd.read_csv('data.csv')
+try:
+    with open('filter_data_output.json', 'r', encoding="utf-8") as file:
+        data = json.load(file)
+except FileNotFoundError:
+    raise Exception("Error: 'data.json' not found. Please create the file.")
 
-with open("1000palavras.txt", "r", encoding="utf-8") as f:
-    conteudo = f.read()
+except json.JSONDecodeError:
+    raise Exception("Error: Invalid JSON format in 'data.json'.")
 
-# conteudo = set(conteudo.split())
-# conteudo = "\n".join(conteudo)
-# with open("1000palavras.txt", "w", encoding="utf-8") as f:
-#     f.write(conteudo)
+try:
+    with open("1000palavras.txt", "r", encoding="utf-8") as f:
+        conteudo = f.read()
+        palavras_txt = conteudo.splitlines()
+        palavras_txt = list(set(palavras_txt))
+        random.shuffle(palavras_txt)
+except Exception as e:
+    print(e)
 
 
-coluna_df = df['word']
+def generate_date_from_today(plus_days: int):
+    today = datetime.today()
+    return (today + timedelta(days=plus_days)).strftime("%Y%m%d") 
 
-palavras_txt = conteudo.splitlines()
+n=0
+for i in range(len(palavras_txt)):
+    palavra = palavras_txt[i]
+    achou = False
+    for j in range(len(data)):
+        if data[j]['word'] == palavra:
+            data[j]['dailyKey'] = generate_date_from_today(n)
+            print(f"id: {data[j]['id']}, word: {data[j]['word']}, dailyKey: {data[j]['dailyKey']}")
+            achou = True
+            n+=1
+            break
+    if not achou:
+        data[j]['dailyKey'] = "00000000"
 
-# Verificar quais palavras do TXT estão no DataFrame
-presentes = [p for p in palavras_txt if p in coluna_df.values]
-presentes = list(set(presentes))  # remover duplicatas
-presentes.sort()
+print(n)
+print(data[177])
 
-faltando = [p for p in palavras_txt if p not in coluna_df.values]
-
-with open(r"palavras_do_dia.txt", "w", encoding="utf-8") as f:
-    f.write("\n".join(presentes))
-
-with open(r"palavras_faltando.txt", "w", encoding="utf-8") as f:
-    f.write("\n".join(faltando))
-    
-
-presentes_df = df[df['word'].isin(presentes)]
-# Exportar para CSV
-# df.drop(0, axis=1, inplace=True)
-# df.index.name = 'index'
-# df.to_csv('output.csv', index=True, header=True)
-def shuffle_and_dates(df):
-    df = df.sample(frac=1).reset_index(drop=True)
-
-    n_dias = 10 * 365  # aproximando sem considerar anos bissextos
-
-    # Número de linhas do DF original
-    n_linhas = len(df)
-
-    # Repetindo as linhas para cobrir todos os dias
-    repeticoes = -(-n_dias // n_linhas)  # ceil division para garantir cobertura
-    df_exp = pd.concat([df]*repeticoes, ignore_index=True)
-
-    # Mantendo apenas n_dias
-    df_exp = df_exp.iloc[:n_dias].copy()
-
-    # Criando a coluna de datas consecutivas começando de hoje
-    hoje = datetime.now().date()
-    datas = pd.date_range(start=hoje, periods=n_dias, freq='D')
-    df_exp['data'] = datas
-    df_exp['dailyKey'] = df_exp['data'].dt.strftime('%Y%m%d')
-
-    return df_exp
-
-presentes_df = shuffle_and_dates(presentes_df)
-presentes_df = presentes_df.drop(columns=['data', 'index'])
-
-presentes_df.to_csv("daily_word.csv", index=False, encoding="utf-8")
-20220322
+with open('data_with_dailyKey.json', 'w', encoding="utf-8") as file:
+    json.dump(data, file, ensure_ascii=False)

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Asset } from "expo-asset";
-import Papa from "papaparse";
 import { DictionaryItem } from "../types";
+import Data from "../assets/data.json";
 
 export function useDictionaryData() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -12,18 +11,8 @@ export function useDictionaryData() {
 		async function readCsvAsset() {
 			try {
 				setIsLoading(true);
-				const asset = Asset.fromModule(
-					require("../assets/data_mock.csv")
-				);
-				await asset.downloadAsync();
-				const response = await fetch(asset.uri);
-				const text = await response.text();
-				const parsed = Papa.parse(text, { header: true });
-				const data = parsed.data as DictionaryItem[];
-				if (data.length > 0 && data[data.length - 1].index === "") {
-					data.pop();
-				}
-				setData(data);
+				const jsonData = Data as DictionaryItem[];
+				setData(jsonData);
 				setIsLoading(false);
 			} catch (error) {
 				setIsLoading(false);

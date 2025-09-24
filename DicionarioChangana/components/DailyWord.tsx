@@ -1,8 +1,13 @@
 import { Text, View, StyleSheet, Platform } from "react-native";
 import { useDailyWord } from "../hooks/useDailyWord";
+import { DictionaryItem } from "../types";
 
-export function DailyWord() {
-	const { word, meaning } = useDailyWord();
+type DailyWordProps = {
+	dictionaryData: DictionaryItem[];
+};
+
+export function DailyWord({ dictionaryData }: DailyWordProps) {
+	const { word, meaning } = useDailyWord(dictionaryData);
 
 	return (
 		<View style={styles.container}>

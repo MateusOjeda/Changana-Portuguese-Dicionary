@@ -9,7 +9,7 @@ export function DictionaryListItem({ item }: { item: DictionaryItem }) {
 				onPress={() => {
 					router.push({
 						pathname: "/meaning/[id]",
-						params: { id: item.index, ...item },
+						params: item,
 					});
 				}}
 			>

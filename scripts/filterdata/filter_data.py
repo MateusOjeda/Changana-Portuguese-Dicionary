@@ -50,7 +50,10 @@ for index, row in df.iterrows():
 
 df.drop(0, axis=1, inplace=True)
 df.index.name = 'index'
-df.to_csv('output.csv', index=True, header=True)
+# df.to_csv('output.csv', index=True, header=True)
+df = df.reset_index().rename(columns={"index": "id"})
+df.to_json('output.json', orient='records', force_ascii=False)
+
 
 # print(df.head(5))
 
