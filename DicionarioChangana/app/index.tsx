@@ -16,6 +16,7 @@ import { useDictionaryData } from "../hooks/useDictionaryData";
 import { useLocalDate } from "../hooks/useLocalDate";
 import { DictionaryListItem } from "../components/DictionaryListItem";
 import { DailyWord } from "../components/DailyWord";
+import { FavoriteBox } from "../components/FavoriteBox";
 import { runSearch } from "../utils/searchUtils";
 import { DictionaryItem } from "../types";
 import { router } from "expo-router";
@@ -206,6 +207,9 @@ export default function Index() {
 					<Text style={{ ...styles.title, marginBottom: 10 }}>
 						Favoritas
 					</Text>
+					{!isLoading && fullData.length > 0 && (
+						<FavoriteBox dictionaryData={fullData} />
+					)}
 				</View>
 				<View style={{ marginTop: 20, paddingHorizontal: 16 }}>
 					<Text style={{ ...styles.title, marginBottom: 10 }}>
