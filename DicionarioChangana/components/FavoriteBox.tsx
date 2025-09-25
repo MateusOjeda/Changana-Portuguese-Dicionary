@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
 	Text,
 	View,
@@ -10,6 +10,7 @@ import { DictionaryItem } from "../types";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
 import filter from "lodash/filter";
+import { useFocusEffect } from "@react-navigation/native";
 
 type DailyWordProps = {
 	dictionaryData: DictionaryItem[];
@@ -18,7 +19,7 @@ type DailyWordProps = {
 export function FavoriteBox({ dictionaryData }: DailyWordProps) {
 	const [favorites, setFavorites] = useState<String[]>([]);
 
-	useEffect(() => {
+	const loadFavorites = async () => {
 		const checkFavorite = async () => {
 			const favoritesJson = await AsyncStorage.getItem("favorites");
 			const favorites: string[] = favoritesJson
@@ -28,7 +29,13 @@ export function FavoriteBox({ dictionaryData }: DailyWordProps) {
 		};
 
 		checkFavorite();
-	}, [dictionaryData]);
+	};
+
+	useFocusEffect(
+		useCallback(() => {
+			loadFavorites();
+		}, [])
+	);
 
 	const handlePress = (word: string) => {
 		const dictionaryItems = filter(dictionaryData, (item) => {
@@ -46,15 +53,24 @@ export function FavoriteBox({ dictionaryData }: DailyWordProps) {
 
 	return (
 		<View style={styles.container}>
-			{favorites.map((word) => (
-				<TouchableOpacity
-					key={word.toString()}
-					onPress={() => handlePress(word.toString())}
-					style={styles.button}
-				>
-					<Text style={styles.buttonText}>{word}</Text>
-				</TouchableOpacity>
-			))}
+			{favorites.length === 0 ? (
+				<Text style={styles.emptyText}>
+					Você ainda não adicionou palavras aos favoritos. Clique no
+					coração para adicioná-la!
+				</Text>
+			) : (
+				<>
+					{favorites.map((word) => (
+						<TouchableOpacity
+							key={word.toString()}
+							onPress={() => handlePress(word.toString())}
+							style={styles.button}
+						>
+							<Text style={styles.buttonText}>{word}</Text>
+						</TouchableOpacity>
+					))}
+				</>
+			)}
 		</View>
 	);
 }
@@ -107,5 +123,11 @@ const styles = StyleSheet.create({
 		color: "#044a02",
 		fontSize: 14,
 		fontWeight: "500",
+	},
+	emptyText: {
+		fontSize: 16,
+		color: "#555",
+		textAlign: "center",
+		fontStyle: "italic",
 	},
 });

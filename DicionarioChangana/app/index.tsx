@@ -213,7 +213,7 @@ export default function Index() {
 				</View>
 				<View style={{ marginTop: 20, paddingHorizontal: 16 }}>
 					<Text style={{ ...styles.title, marginBottom: 10 }}>
-						Mais Pesquisadas
+						Últimas pesquisadas
 					</Text>
 				</View>
 			</View>
