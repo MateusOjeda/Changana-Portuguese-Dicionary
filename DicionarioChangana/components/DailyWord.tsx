@@ -1,6 +1,14 @@
-import { Text, View, StyleSheet, Platform } from "react-native";
+import {
+	Text,
+	View,
+	StyleSheet,
+	Platform,
+	TouchableWithoutFeedback,
+} from "react-native";
 import { useDailyWord } from "../hooks/useDailyWord";
 import { DictionaryItem } from "../types";
+import { runSearch } from "../utils/searchUtils";
+import { router } from "expo-router";
 
 type DailyWordProps = {
 	dictionaryData: DictionaryItem[];
@@ -9,11 +17,23 @@ type DailyWordProps = {
 export function DailyWord({ dictionaryData }: DailyWordProps) {
 	const { word, meaning } = useDailyWord(dictionaryData);
 
+	const handlePress = () => {
+		const data = runSearch(dictionaryData, word);
+		if (data.length !== 0) {
+			router.push({
+				pathname: "/meaning/[id]",
+				params: { ...data[0] },
+			});
+		}
+	};
+
 	return (
-		<View style={styles.container}>
-			<Text style={styles.title}>{word}</Text>
-			<Text style={styles.meaning}>{meaning}</Text>
-		</View>
+		<TouchableWithoutFeedback onPress={handlePress}>
+			<View style={styles.container}>
+				<Text style={styles.title}>{word}</Text>
+				<Text style={styles.meaning}>{meaning}</Text>
+			</View>
+		</TouchableWithoutFeedback>
 	);
 }
 
