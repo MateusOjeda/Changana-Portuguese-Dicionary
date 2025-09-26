@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import FavoriteButton from "../../components/FavoriteButton";
+import TooltipText from "../../components/TooltipText";
 import { useSearchedWord } from "../../hooks/useSearchedWord";
 
 export default function WordMeaning() {
@@ -30,8 +31,11 @@ export default function WordMeaning() {
 				<Text style={styles.word}>{word}</Text>
 				<FavoriteButton word={word} />
 			</View>
-			<View style={styles.meaningCard}>
+			{/* <View style={styles.meaningCard}>
 				<Text style={styles.meaning}>{meaning}</Text>
+			</View> */}
+			<View style={styles.meaningCard}>
+				<TooltipText text={meaning} />
 			</View>
 		</SafeAreaView>
 	);
