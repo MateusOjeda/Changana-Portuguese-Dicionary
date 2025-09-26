@@ -1,9 +1,10 @@
 import { useLocalSearchParams } from "expo-router";
 import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { FontAwesome, Feather } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import FavoriteButton from "../../components/FavoriteButton";
+import { useSearchedWord } from "../../hooks/useSearchedWord";
 
 export default function WordMeaning() {
 	const { id, meaning, word } = useLocalSearchParams<{
@@ -13,6 +14,9 @@ export default function WordMeaning() {
 	}>();
 
 	const navigation = useNavigation();
+
+	const { addWord } = useSearchedWord();
+	addWord(word);
 
 	return (
 		<SafeAreaView style={styles.container}>

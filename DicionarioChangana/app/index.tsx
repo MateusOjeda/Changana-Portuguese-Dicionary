@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import {
 	ActivityIndicator,
 	FlatList,
@@ -17,18 +17,45 @@ import { useLocalDate } from "../hooks/useLocalDate";
 import { DictionaryListItem } from "../components/DictionaryListItem";
 import { DailyWord } from "../components/DailyWord";
 import { FavoriteBox } from "../components/FavoriteBox";
+import { LastSearched } from "../components/LastSearched";
 import { runSearch } from "../utils/searchUtils";
+import { transformations } from "../utils/transformations";
 import { DictionaryItem } from "../types";
 import { router } from "expo-router";
 import { MaterialIcons, Entypo } from "@expo/vector-icons";
 import * as NavigationBar from "expo-navigation-bar";
+import { useSearchedWord } from "../hooks/useSearchedWord";
+import { useFocusEffect } from "@react-navigation/native";
 
 export default function Index() {
 	const { isLoading, data: fullData, error } = useDictionaryData();
 	const [data, setData] = useState<DictionaryItem[]>([]);
+	// const [searchedWordsData, setSearchedWordsData] = useState<
+	// 	DictionaryItem[]
+	// >([]);
 	const [searchQuery, setSearchQuery] = useState("");
 	const [focused, setFocused] = useState(false);
 	const inputRef = useRef<TextInput>(null);
+
+	// const { loadSearchedWordsByDate } = useSearchedWord();
+
+	// useFocusEffect(
+	// 	useCallback(() => {
+	// 		if (!fullData || fullData.length === 0) return;
+	// 		const fetchData = async () => {
+	// 			const searchedWords = await loadSearchedWordsByDate(6);
+	// 			const { transformSearchedWordsToDictionaryItems } =
+	// 				transformations();
+	// 			const searchedData: DictionaryItem[] =
+	// 				transformSearchedWordsToDictionaryItems(
+	// 					searchedWords,
+	// 					fullData
+	// 				);
+	// 			setSearchedWordsData(searchedData);
+	// 		};
+	// 		fetchData();
+	// 	}, [fullData])
+	// );
 
 	useEffect(() => {
 		NavigationBar.setButtonStyleAsync("dark");
@@ -42,14 +69,18 @@ export default function Index() {
 		return () => hide.remove();
 	}, []);
 
+	// const loadedSearchedWords = loadSearchedWordsByDate();
+
 	const handleSearch = (query: string) => {
 		setSearchQuery(query);
 		if (query === "") {
+			// setSearchedWordsData(searchedWordsData);
 			setData([]);
 			return;
 		}
 		const rankedData = runSearch(fullData, query);
 		setData(rankedData.slice(0, 8));
+		// setSearchedWordsData([]);
 	};
 
 	const handleSubmit = (query: string) => {
@@ -160,6 +191,7 @@ export default function Index() {
 			{focused && (
 				<>
 					<FlatList
+						// data={searchedWordsData.concat(data)}
 						data={data}
 						renderItem={({ item }) => (
 							<DictionaryListItem item={item} />
@@ -215,6 +247,9 @@ export default function Index() {
 					<Text style={{ ...styles.title, marginBottom: 10 }}>
 						Últimas pesquisadas
 					</Text>
+					{!isLoading && fullData.length > 0 && (
+						<LastSearched dictionaryData={fullData} />
+					)}
 				</View>
 			</View>
 

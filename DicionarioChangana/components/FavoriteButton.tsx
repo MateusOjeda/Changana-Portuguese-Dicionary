@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useFavorites } from "../hooks/useFavorites";
 
 interface FavoriteButtonProps {
 	word: string;
@@ -10,13 +11,12 @@ interface FavoriteButtonProps {
 export default function FavoriteButton({ word }: FavoriteButtonProps) {
 	const [isFavorite, setIsFavorite] = useState(false);
 
+	const { toggleFavorite, loadFavorites } = useFavorites();
+
 	// Checar se a palavra já está nos favoritos
 	useEffect(() => {
 		const checkFavorite = async () => {
-			const favoritesJson = await AsyncStorage.getItem("favorites");
-			const favorites: string[] = favoritesJson
-				? JSON.parse(favoritesJson)
-				: [];
+			const favorites = await loadFavorites();
 			setIsFavorite(favorites.includes(word));
 		};
 
@@ -24,24 +24,13 @@ export default function FavoriteButton({ word }: FavoriteButtonProps) {
 	}, [word]);
 
 	// Função para adicionar/remover favorito
-	const toggleFavorite = async () => {
-		const favoritesJson = await AsyncStorage.getItem("favorites");
-		let favorites: string[] = favoritesJson
-			? JSON.parse(favoritesJson)
-			: [];
-
-		if (isFavorite) {
-			favorites = favorites.filter((w) => w !== word);
-		} else {
-			favorites.push(word);
-		}
-
-		await AsyncStorage.setItem("favorites", JSON.stringify(favorites));
+	const toggle = async () => {
+		toggleFavorite(isFavorite, word);
 		setIsFavorite(!isFavorite);
 	};
 
 	return (
-		<TouchableOpacity style={styles.button} onPress={toggleFavorite}>
+		<TouchableOpacity style={styles.button} onPress={toggle}>
 			{isFavorite ? (
 				<FontAwesome name="heart" size={30} color="#4e4e4eff" />
 			) : (

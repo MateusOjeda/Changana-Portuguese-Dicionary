@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import {
 	Text,
 	View,
@@ -7,10 +7,10 @@ import {
 	TouchableOpacity,
 } from "react-native";
 import { DictionaryItem } from "../types";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
 import filter from "lodash/filter";
 import { useFocusEffect } from "@react-navigation/native";
+import { useFavorites } from "../hooks/useFavorites";
 
 type DailyWordProps = {
 	dictionaryData: DictionaryItem[];
@@ -19,21 +19,16 @@ type DailyWordProps = {
 export function FavoriteBox({ dictionaryData }: DailyWordProps) {
 	const [favorites, setFavorites] = useState<String[]>([]);
 
-	const loadFavorites = async () => {
-		const checkFavorite = async () => {
-			const favoritesJson = await AsyncStorage.getItem("favorites");
-			const favorites: string[] = favoritesJson
-				? JSON.parse(favoritesJson)
-				: [];
-			setFavorites(favorites);
-		};
+	const { loadFavorites } = useFavorites();
 
-		checkFavorite();
+	const checkFavorite = async () => {
+		const favorites: string[] = await loadFavorites();
+		setFavorites(favorites);
 	};
 
 	useFocusEffect(
 		useCallback(() => {
-			loadFavorites();
+			checkFavorite();
 		}, [])
 	);
 
