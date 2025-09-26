@@ -122,5 +122,7 @@ const styles = StyleSheet.create({
 		color: "#555",
 		textAlign: "center",
 		fontStyle: "italic",
+		marginVertical: 10,
+		width: "100%",
 	},
 });

@@ -14,7 +14,7 @@ export function DictionaryListItem({ item }: { item: DictionaryItem }) {
 			}}
 		>
 			<View style={styles.item}>
-				{item.icon && item.icon === "clock" && (
+				{item.icon === "clock" && (
 					<Feather name="clock" size={24} color="black" />
 				)}
 
