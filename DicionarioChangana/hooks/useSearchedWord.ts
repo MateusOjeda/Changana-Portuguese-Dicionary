@@ -1,16 +1,16 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { SearchedWords } from "../types";
+import { SearchedWord } from "../types";
 
 export function useSearchedWord() {
 	const addWord = async (word: string) => {
 		const searchedWordsJson = await AsyncStorage.getItem("searchedWords");
-		let searchedWords: SearchedWords[] = searchedWordsJson
+		let searchedWords: SearchedWord[] = searchedWordsJson
 			? JSON.parse(searchedWordsJson)
 			: [];
 
 		searchedWords = searchedWords.filter((item) => item.word !== word);
 
-		const searchedWord: SearchedWords = {
+		const searchedWord: SearchedWord = {
 			date: new Date(),
 			word: word,
 		};
@@ -25,7 +25,7 @@ export function useSearchedWord() {
 
 	const loadSearchedWords = async () => {
 		const searchedWordsJson = await AsyncStorage.getItem("searchedWords");
-		const searchedWords: SearchedWords[] = searchedWordsJson
+		const searchedWords: SearchedWord[] = searchedWordsJson
 			? JSON.parse(searchedWordsJson)
 			: [];
 		return searchedWords;
@@ -33,7 +33,7 @@ export function useSearchedWord() {
 
 	const loadSearchedWordsByDate = async (n: number = 0) => {
 		const searchedWordsJson = await AsyncStorage.getItem("searchedWords");
-		let searchedWords: SearchedWords[] = searchedWordsJson
+		let searchedWords: SearchedWord[] = searchedWordsJson
 			? JSON.parse(searchedWordsJson).map((item: any) => ({
 					...item,
 					date: new Date(item.date), // convert string back to Date

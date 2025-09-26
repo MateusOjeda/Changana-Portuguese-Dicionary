@@ -3,9 +3,10 @@ export type DictionaryItem = {
 	word: string;
 	meaning: string;
 	dailyKey?: string;
+	icon?: string;
 };
 
-export type SearchedWords = {
+export type SearchedWord = {
 	date: Date;
 	word: string;
 };

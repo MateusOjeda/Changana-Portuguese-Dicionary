@@ -9,7 +9,7 @@ import {
 import { DictionaryItem } from "../types";
 import { router } from "expo-router";
 import { useFocusEffect } from "@react-navigation/native";
-import { SearchedWords } from "../types";
+import { SearchedWord } from "../types";
 import { useSearchedWord } from "../hooks/useSearchedWord";
 import { runSearch } from "../utils/searchUtils";
 
@@ -18,14 +18,12 @@ type LastSearchedProps = {
 };
 
 export function LastSearched({ dictionaryData }: LastSearchedProps) {
-	const [searchedWords, setSearchedWords] = useState<SearchedWords[]>([]);
+	const [searchedWords, setSearchedWords] = useState<SearchedWord[]>([]);
 
 	const { loadSearchedWordsByDate } = useSearchedWord();
 
 	const checkSearchedWords = async () => {
-		const searchedWords: SearchedWords[] = await loadSearchedWordsByDate(
-			12
-		);
+		const searchedWords: SearchedWord[] = await loadSearchedWordsByDate(12);
 		setSearchedWords(searchedWords);
 	};
 

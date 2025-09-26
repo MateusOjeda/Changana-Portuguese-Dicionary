@@ -30,32 +30,32 @@ import { useFocusEffect } from "@react-navigation/native";
 export default function Index() {
 	const { isLoading, data: fullData, error } = useDictionaryData();
 	const [data, setData] = useState<DictionaryItem[]>([]);
-	// const [searchedWordsData, setSearchedWordsData] = useState<
-	// 	DictionaryItem[]
-	// >([]);
+	const [searchedWordsData, setSearchedWordsData] = useState<
+		DictionaryItem[]
+	>([]);
 	const [searchQuery, setSearchQuery] = useState("");
 	const [focused, setFocused] = useState(false);
 	const inputRef = useRef<TextInput>(null);
 
-	// const { loadSearchedWordsByDate } = useSearchedWord();
+	const { loadSearchedWordsByDate } = useSearchedWord();
 
-	// useFocusEffect(
-	// 	useCallback(() => {
-	// 		if (!fullData || fullData.length === 0) return;
-	// 		const fetchData = async () => {
-	// 			const searchedWords = await loadSearchedWordsByDate(6);
-	// 			const { transformSearchedWordsToDictionaryItems } =
-	// 				transformations();
-	// 			const searchedData: DictionaryItem[] =
-	// 				transformSearchedWordsToDictionaryItems(
-	// 					searchedWords,
-	// 					fullData
-	// 				);
-	// 			setSearchedWordsData(searchedData);
-	// 		};
-	// 		fetchData();
-	// 	}, [fullData])
-	// );
+	useFocusEffect(
+		useCallback(() => {
+			if (!fullData || fullData.length === 0) return;
+			const fetchData = async () => {
+				const searchedWords = await loadSearchedWordsByDate(10);
+				const { transformSearchedWordsToDictionaryItems } =
+					transformations();
+				const searchedData: DictionaryItem[] =
+					transformSearchedWordsToDictionaryItems(
+						searchedWords,
+						fullData
+					);
+				setSearchedWordsData(searchedData);
+			};
+			fetchData();
+		}, [fullData])
+	);
 
 	useEffect(() => {
 		NavigationBar.setButtonStyleAsync("dark");
@@ -69,18 +69,14 @@ export default function Index() {
 		return () => hide.remove();
 	}, []);
 
-	// const loadedSearchedWords = loadSearchedWordsByDate();
-
 	const handleSearch = (query: string) => {
 		setSearchQuery(query);
 		if (query === "") {
-			// setSearchedWordsData(searchedWordsData);
-			setData([]);
+			setData(searchedWordsData);
 			return;
 		}
 		const rankedData = runSearch(fullData, query);
 		setData(rankedData.slice(0, 8));
-		// setSearchedWordsData([]);
 	};
 
 	const handleSubmit = (query: string) => {
@@ -99,6 +95,11 @@ export default function Index() {
 		setFocused(false);
 		if (inputRef.current) inputRef.current.blur();
 		Keyboard.dismiss();
+	};
+
+	const handleClearInput = () => {
+		setSearchQuery("");
+		handleSearch("");
 	};
 
 	if (isLoading) {
@@ -153,7 +154,9 @@ export default function Index() {
 					placeholder="Buscar palavra em português"
 					autoCapitalize="none"
 					multiline={false}
-					onFocus={() => setFocused(true)}
+					onFocus={() => {
+						handleSearch(searchQuery), setFocused(true);
+					}}
 					onBlur={() => setFocused(false)}
 					autoCorrect={false}
 					value={searchQuery}
@@ -162,10 +165,7 @@ export default function Index() {
 				/>
 				{searchQuery.length > 0 && (
 					<TouchableOpacity
-						onPress={() => {
-							setSearchQuery("");
-							setData([]);
-						}}
+						onPress={handleClearInput}
 						style={styles.clearButton}
 					>
 						<MaterialIcons name="close" size={22} color="#666" />
@@ -191,7 +191,6 @@ export default function Index() {
 			{focused && (
 				<>
 					<FlatList
-						// data={searchedWordsData.concat(data)}
 						data={data}
 						renderItem={({ item }) => (
 							<DictionaryListItem item={item} />
