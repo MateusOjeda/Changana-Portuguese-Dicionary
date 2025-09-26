@@ -7,9 +7,10 @@ import { runSearch } from "../utils/searchUtils";
 import { DictionaryItem } from "../types";
 import SearchBox from "../components/SearchBox";
 import SearchResultsList from "../components/SearchResultsList";
-import { DailyWord } from "../components/DailyWord";
+import { DailyWordBox } from "../components/DailyWordBox";
 import { FavoriteBox } from "../components/FavoriteBox";
-import { LastSearched } from "../components/LastSearched";
+import { LastSearchedBox } from "../components/LastSearchedBox";
+import { DrawWordBox } from "../components/DrawWordBox";
 import { Loading } from "../components/_Loading";
 import { Error } from "../components/_Error";
 import { useSearchedWord } from "../hooks/useSearchedWord";
@@ -104,14 +105,14 @@ export default function Index() {
 							</Text>
 						</View>
 						{!isLoading && fullData.length > 0 && (
-							<DailyWord dictionaryData={fullData} />
+							<DailyWordBox dictionaryData={fullData} />
 						)}
 					</View>
 
 					<View style={styles.sectionContainer}>
 						<Text style={styles.title}>Últimas pesquisadas</Text>
 						{!isLoading && fullData.length > 0 && (
-							<LastSearched dictionaryData={fullData} />
+							<LastSearchedBox dictionaryData={fullData} />
 						)}
 					</View>
 
@@ -119,6 +120,9 @@ export default function Index() {
 						<Text style={styles.title}>
 							Melhore seu vocabulário
 						</Text>
+						{!isLoading && fullData.length > 0 && (
+							<DrawWordBox dictionaryData={fullData} />
+						)}
 					</View>
 
 					<View style={styles.sectionContainer}>

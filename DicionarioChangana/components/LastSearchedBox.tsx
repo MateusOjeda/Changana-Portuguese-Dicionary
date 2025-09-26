@@ -17,7 +17,7 @@ type LastSearchedProps = {
 	dictionaryData: DictionaryItem[];
 };
 
-export function LastSearched({ dictionaryData }: LastSearchedProps) {
+export function LastSearchedBox({ dictionaryData }: LastSearchedProps) {
 	const [searchedWords, setSearchedWords] = useState<SearchedWord[]>([]);
 
 	const { loadSearchedWordsByDate } = useSearchedWord();

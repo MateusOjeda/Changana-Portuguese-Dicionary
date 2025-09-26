@@ -14,7 +14,7 @@ type DailyWordProps = {
 	dictionaryData: DictionaryItem[];
 };
 
-export function DailyWord({ dictionaryData }: DailyWordProps) {
+export function DailyWordBox({ dictionaryData }: DailyWordProps) {
 	const { word, meaning } = useDailyWord(dictionaryData);
 
 	const handlePress = () => {
