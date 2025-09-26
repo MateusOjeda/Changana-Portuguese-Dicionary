@@ -14,6 +14,7 @@ type SearchBoxProps = {
 	onSearch: (query: string) => void;
 	onFocusChange: (focused: boolean) => void;
 	focused: boolean;
+	onSubmit: (query: string) => void;
 };
 
 export default function SearchBox({
@@ -21,6 +22,7 @@ export default function SearchBox({
 	onSearch,
 	onFocusChange,
 	focused,
+	onSubmit,
 }: SearchBoxProps) {
 	const inputRef = useRef<TextInput>(null);
 
@@ -58,7 +60,7 @@ export default function SearchBox({
 				autoCorrect={false}
 				value={searchQuery}
 				onChangeText={onSearch}
-				// onSubmitEditing={(e) => handleSubmit(e.nativeEvent.text)}
+				onSubmitEditing={(e) => onSubmit(e.nativeEvent.text)}
 			/>
 			{searchQuery.length > 0 && (
 				<TouchableOpacity

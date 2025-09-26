@@ -16,6 +16,7 @@ import { useSearchedWord } from "../hooks/useSearchedWord";
 import { transformations } from "../utils/transformations";
 import { useFocusEffect } from "@react-navigation/native";
 import * as NavigationBar from "expo-navigation-bar";
+import { router } from "expo-router";
 import { useEffect } from "react";
 
 export default function Index() {
@@ -61,6 +62,19 @@ export default function Index() {
 		setSearchData(rankedData.slice(0, 8));
 	};
 
+	const handleSubmit = (query: string) => {
+		if (!fullData) return;
+		const rankedData = runSearch(fullData, query);
+		if (rankedData.length === 0) {
+			router.push({ pathname: "/notfound" });
+			return;
+		}
+		router.push({
+			pathname: "/meaning/[id]",
+			params: { ...rankedData[0] },
+		});
+	};
+
 	if (isLoading) {
 		return <Loading />;
 	}
@@ -76,6 +90,7 @@ export default function Index() {
 				onSearch={handleSearch}
 				onFocusChange={setFocused}
 				focused={focused}
+				onSubmit={handleSubmit}
 			/>
 			{focused ? (
 				<SearchResultsList data={searchData} />
