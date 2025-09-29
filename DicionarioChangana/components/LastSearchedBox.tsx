@@ -23,7 +23,7 @@ export function LastSearchedBox({ dictionaryData }: LastSearchedProps) {
 	const { loadSearchedWordsByDate } = useSearchedWord();
 
 	const checkSearchedWords = async () => {
-		const searchedWords: SearchedWord[] = await loadSearchedWordsByDate(12);
+		const searchedWords: SearchedWord[] = await loadSearchedWordsByDate(10);
 		setSearchedWords(searchedWords);
 	};
 

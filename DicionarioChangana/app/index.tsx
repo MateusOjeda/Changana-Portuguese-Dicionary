@@ -96,42 +96,52 @@ export default function Index() {
 			{focused ? (
 				<SearchResultsList data={searchData} />
 			) : (
-				<ScrollView style={styles.allContent}>
-					<View style={styles.sectionContainer}>
-						<View style={styles.dailyWordHeader}>
-							<Text style={styles.title}>Palavra do dia</Text>
-							<Text style={styles.todayDateText}>
-								{useLocalDate()}
-							</Text>
+				<>
+					<ScrollView
+						showsVerticalScrollIndicator={true}
+						contentContainerStyle={{ paddingBottom: 80 }}
+						style={styles.allContent}
+					>
+						<View style={styles.sectionContainer}>
+							<View style={styles.dailyWordHeader}>
+								<Text style={styles.title}>Palavra do dia</Text>
+								<Text style={styles.todayDateText}>
+									{useLocalDate()}
+								</Text>
+							</View>
+							{!isLoading && fullData.length > 0 && (
+								<DailyWordBox dictionaryData={fullData} />
+							)}
 						</View>
-						{!isLoading && fullData.length > 0 && (
-							<DailyWordBox dictionaryData={fullData} />
-						)}
-					</View>
 
-					<View style={styles.sectionContainer}>
-						<Text style={styles.title}>Últimas pesquisadas</Text>
-						{!isLoading && fullData.length > 0 && (
-							<LastSearchedBox dictionaryData={fullData} />
-						)}
-					</View>
+						<View style={styles.sectionContainer}>
+							<Text style={styles.title}>
+								Últimas pesquisadas
+							</Text>
+							{!isLoading && fullData.length > 0 && (
+								<LastSearchedBox dictionaryData={fullData} />
+							)}
+						</View>
 
-					<View style={styles.sectionContainer}>
-						<Text style={styles.title}>
-							Melhore seu vocabulário
-						</Text>
-						{!isLoading && fullData.length > 0 && (
-							<DrawWordBox dictionaryData={fullData} />
-						)}
-					</View>
+						<View style={styles.sectionContainer}>
+							<Text style={styles.title}>
+								Melhore seu vocabulário
+							</Text>
+							{!isLoading && fullData.length > 0 && (
+								<DrawWordBox dictionaryData={fullData} />
+							)}
+						</View>
 
-					<View style={styles.sectionContainer}>
-						<Text style={styles.title}>Favoritas</Text>
-						{!isLoading && fullData.length > 0 && (
-							<FavoriteBox dictionaryData={fullData} />
-						)}
-					</View>
-				</ScrollView>
+						<View style={styles.sectionContainer}>
+							<Text style={styles.title}>Favoritas</Text>
+							{!isLoading && fullData.length > 0 && (
+								<FavoriteBox dictionaryData={fullData} />
+							)}
+						</View>
+					</ScrollView>
+					{/* Bottom menu */}
+					<View style={styles.bottomMenu} />
+				</>
 			)}
 		</SafeAreaView>
 	);
@@ -163,5 +173,20 @@ const styles = StyleSheet.create({
 	},
 	todayDateText: {
 		marginBottom: 10,
+	},
+	bottomMenu: {
+		position: "absolute",
+		bottom: 0,
+		left: 0,
+		right: 0,
+		height: 80,
+		backgroundColor: "rgba(255,255,255,0.85)",
+		justifyContent: "center",
+		alignItems: "center",
+		shadowColor: "#000",
+		shadowOffset: { width: 0, height: -2 },
+		shadowOpacity: 0.1,
+		shadowRadius: 4,
+		elevation: 50,
 	},
 });

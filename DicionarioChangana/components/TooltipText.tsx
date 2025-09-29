@@ -31,7 +31,6 @@ export default function TooltipText({ text }: TooltipTextProps) {
 
 	// First we split on "1.". "2.", "a)", "b)" ...
 	const textItems = splitNumberedAndLetteredItems(text);
-	console.log(JSON.stringify(textItems, null, 2));
 
 	return (
 		<View>
