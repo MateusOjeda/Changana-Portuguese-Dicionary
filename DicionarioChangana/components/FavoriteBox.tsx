@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "#e6f5ee", // cor de destaque
 		paddingVertical: 8,
 		paddingHorizontal: 14,
-		borderRadius: 20,
+		borderRadius: 2,
 		marginHorizontal: 5,
 		marginBottom: 10,
 		...Platform.select({
