@@ -11,6 +11,7 @@ import { DailyWordBox } from "../components/DailyWordBox";
 import { FavoriteBox } from "../components/FavoriteBox";
 import { LastSearchedBox } from "../components/LastSearchedBox";
 import { DrawWordBox } from "../components/DrawWordBox";
+import { BottomBar } from "../components/BottomBar";
 import { Loading } from "../components/_Loading";
 import { Error } from "../components/_Error";
 import { useSearchedWord } from "../hooks/useSearchedWord";
@@ -137,6 +138,10 @@ export default function Index() {
 							{!isLoading && fullData.length > 0 && (
 								<FavoriteBox dictionaryData={fullData} />
 							)}
+						</View>
+
+						<View style={styles.sectionContainer}>
+							{!isLoading && fullData.length > 0 && <BottomBar />}
 						</View>
 					</ScrollView>
 					{/* Bottom menu */}
