@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Pressable, Modal, StyleSheet } from "react-native";
-import { abbrMap } from "../utils/abreviations";
+import { abbrMap, abreviationsSplit } from "../utils/abreviations";
+import { splitNumberedAndLetteredItems } from "../utils/splitNumberedAndLetteredItems";
 
 type TooltipTextProps = {
 	text: string;
@@ -9,16 +10,9 @@ type TooltipTextProps = {
 export default function TooltipText({ text }: TooltipTextProps) {
 	const [tooltip, setTooltip] = useState<string | null>(null);
 
-	const keys = Object.keys(abbrMap).sort((a, b) => b.length - a.length);
-	const regex = new RegExp(
-		`(${keys
-			.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
-			.join("|")})`,
-		"g"
-	);
-
-	const renderSplitedText = (splitedText: string) => {
-		const parts = splitedText.split(regex); // quebra mantendo as abreviações
+	// Here we render and create tooltips for abreviations
+	const renderAbreviationsText = (splitedText: string) => {
+		const parts = abreviationsSplit(splitedText);
 
 		return parts.map((part, index) => {
 			if (abbrMap[part]) {
@@ -35,32 +29,32 @@ export default function TooltipText({ text }: TooltipTextProps) {
 		});
 	};
 
-	const splitItems = (text: string) => {
-		const regexItems =
-			/(\b[a-z]\)|\b\d+\.)\s*([\s\S]*?)(?=(\b[a-z]\)|\b\d+\.|$))/g;
-
-		const splitedText = [];
-		let match;
-
-		while ((match = regexItems.exec(text)) !== null) {
-			splitedText.push({
-				itemName: match[1],
-				itemText: match[2].trim(),
-			});
-		}
-		return splitedText;
-	};
-
-	const splitedText = splitItems(text);
+	// First we split on "1.". "2.", "a)", "b)" ...
+	const textItems = splitNumberedAndLetteredItems(text);
+	console.log(JSON.stringify(textItems, null, 2));
 
 	return (
 		<View>
-			{splitedText.map((item) => (
+			{textItems.map((item) => (
 				<View key={item.itemName}>
-					<Text style={styles.textItem}>{item.itemName}</Text>
+					{item.itemName !== "" && (
+						<Text style={styles.textItem}>{item.itemName}</Text>
+					)}
 					<Text style={styles.text}>
-						{renderSplitedText(item.itemText)}
+						{renderAbreviationsText(item.itemText)}
 					</Text>
+					{item.subItems?.map((item) => (
+						<View key={item.itemName}>
+							{item.itemName !== "" && (
+								<Text style={styles.textSubItem}>
+									{item.itemName}
+								</Text>
+							)}
+							<Text style={styles.subText}>
+								{renderAbreviationsText(item.itemText)}
+							</Text>
+						</View>
+					))}
 				</View>
 			))}
 
@@ -84,17 +78,30 @@ export default function TooltipText({ text }: TooltipTextProps) {
 }
 
 const styles = StyleSheet.create({
-	text: {
-		fontSize: 16,
-		flexWrap: "wrap",
-		marginBottom: 10,
-	},
 	textItem: {
 		fontSize: 25,
 		fontWeight: 600,
 		marginBottom: 15,
 	},
+	textSubItem: {
+		fontSize: 20,
+		fontWeight: 600,
+		marginBottom: 15,
+		marginLeft: 10,
+	},
+	text: {
+		fontSize: 20,
+		flexWrap: "wrap",
+		marginBottom: 10,
+	},
+	subText: {
+		fontSize: 18,
+		flexWrap: "wrap",
+		marginBottom: 10,
+		marginLeft: 10,
+	},
 	highlight: {
+		fontSize: 17,
 		color: "blue",
 		textDecorationLine: "underline",
 	},

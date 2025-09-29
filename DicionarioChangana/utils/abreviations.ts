@@ -35,7 +35,7 @@ export const abbrMap: Record<string, string> = {
 	"conc.": "concordância",
 	"part. gen.": "partícula genitiva",
 	"(P)": "aportuguesamento",
-	P: "aportuguesamento",
+	"P": "aportuguesamento",
 	"adv.": "advérbio",
 	"interj.": "interjeição",
 	"A.C.": "antes de Cristo",
@@ -44,3 +44,14 @@ export const abbrMap: Record<string, string> = {
 	"ut.": "usado transitivamente",
 	"ext.": "extensão",
 };
+
+export function abreviationsSplit(splitedText: string): string[] {
+	const keys = Object.keys(abbrMap).sort((a, b) => b.length - a.length);
+	const regex = new RegExp(
+		`(${keys
+			.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+			.join("|")})`,
+		"g"
+	);
+	return splitedText.split(regex);
+}
