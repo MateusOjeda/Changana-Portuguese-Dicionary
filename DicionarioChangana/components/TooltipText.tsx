@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Pressable, Modal, StyleSheet } from "react-native";
+import { View, Pressable, Modal, StyleSheet, Button } from "react-native";
 import { abbrMap, abreviationsSplit } from "../utils/abreviations";
 import { splitNumberedAndLetteredItems } from "../utils/splitNumberedAndLetteredItems";
 import { AppText } from "../components/wrapper/AppText";
@@ -10,6 +10,11 @@ type TooltipTextProps = {
 
 export default function TooltipText({ text }: TooltipTextProps) {
 	const [tooltip, setTooltip] = useState<string | null>(null);
+	const [fontIncrement, setFontIncrement] = useState(0);
+
+	const increaseFont = () => setFontIncrement((prev) => prev + 2);
+	const decreaseFont = () =>
+		setFontIncrement((prev) => Math.max(prev - 2, -3));
 
 	// Here we render and create tooltips for abreviations
 	const renderAbreviationsText = (splitedText: string) => {
@@ -22,7 +27,17 @@ export default function TooltipText({ text }: TooltipTextProps) {
 						key={index}
 						onPress={() => setTooltip(abbrMap[part])}
 					>
-						<AppText style={styles.highlight}>{part}</AppText>
+						<AppText
+							style={[
+								styles.highlight,
+								{
+									fontSize:
+										baseSizes.highlight + fontIncrement,
+								},
+							]}
+						>
+							{part}
+						</AppText>
 					</Pressable>
 				);
 			}
@@ -33,26 +48,75 @@ export default function TooltipText({ text }: TooltipTextProps) {
 	// First we split on "1.". "2.", "a)", "b)" ...
 	const textItems = splitNumberedAndLetteredItems(text);
 
+	const baseSizes = {
+		highlight: 17,
+		textItem: 25,
+		text: 20,
+		textSubItem: 20,
+		subText: 18,
+		tooltipText: 16,
+	};
+
 	return (
 		<View>
+			<View style={styles.incrementContainer}>
+				<View style={styles.incrementButton}>
+					<Button title="A-" onPress={decreaseFont} color="#044a02" />
+				</View>
+				<View style={styles.spacer} />
+				<View style={styles.incrementButton}>
+					<Button title="A+" onPress={increaseFont} color="#044a02" />
+				</View>
+			</View>
+
 			{textItems.map((item) => (
 				<View key={item.itemName}>
 					{item.itemName !== "" && (
-						<AppText style={styles.textItem}>
+						<AppText
+							style={[
+								styles.textItem,
+								{
+									fontSize:
+										baseSizes.textItem + fontIncrement,
+								},
+							]}
+						>
 							{item.itemName}
 						</AppText>
 					)}
-					<AppText style={styles.text}>
+					<AppText
+						style={[
+							styles.text,
+							{ fontSize: baseSizes.text + fontIncrement },
+						]}
+					>
 						{renderAbreviationsText(item.itemText)}
 					</AppText>
 					{item.subItems?.map((item) => (
 						<View key={item.itemName}>
 							{item.itemName !== "" && (
-								<AppText style={styles.textSubItem}>
+								<AppText
+									style={[
+										styles.textSubItem,
+										{
+											fontSize:
+												baseSizes.textSubItem +
+												fontIncrement,
+										},
+									]}
+								>
 									{item.itemName}
 								</AppText>
 							)}
-							<AppText style={styles.subText}>
+							<AppText
+								style={[
+									styles.subText,
+									{
+										fontSize:
+											baseSizes.subText + fontIncrement,
+									},
+								]}
+							>
 								{renderAbreviationsText(item.itemText)}
 							</AppText>
 						</View>
@@ -68,7 +132,17 @@ export default function TooltipText({ text }: TooltipTextProps) {
 			>
 				<View style={styles.overlay}>
 					<View style={styles.tooltip}>
-						<AppText style={styles.tooltipText}>{tooltip}</AppText>
+						<AppText
+							style={[
+								styles.tooltipText,
+								{
+									fontSize:
+										baseSizes.tooltipText + fontIncrement,
+								},
+							]}
+						>
+							{tooltip}
+						</AppText>
 						<Pressable onPress={() => setTooltip(null)}>
 							<AppText style={styles.close}>Fechar</AppText>
 						</Pressable>
@@ -81,29 +155,24 @@ export default function TooltipText({ text }: TooltipTextProps) {
 
 const styles = StyleSheet.create({
 	textItem: {
-		fontSize: 25,
 		fontWeight: 600,
 		marginBottom: 15,
 	},
 	textSubItem: {
-		fontSize: 20,
 		fontWeight: 600,
 		marginBottom: 15,
 		marginLeft: 10,
 	},
 	text: {
-		fontSize: 20,
 		flexWrap: "wrap",
 		marginBottom: 10,
 	},
 	subText: {
-		fontSize: 18,
 		flexWrap: "wrap",
 		marginBottom: 10,
 		marginLeft: 10,
 	},
 	highlight: {
-		fontSize: 17,
 		color: "blue",
 		textDecorationLine: "underline",
 	},
@@ -121,11 +190,21 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 	},
 	tooltipText: {
-		fontSize: 16,
 		marginBottom: 8,
 	},
 	close: {
 		color: "red",
 		marginTop: 4,
+	},
+	incrementContainer: {
+		flexDirection: "row", // layout buttons horizontally
+		justifyContent: "flex-end", // push buttons to the right
+		marginTop: 20,
+	},
+	incrementButton: {
+		width: 38,
+	},
+	spacer: {
+		width: 12, // space between buttons
 	},
 });

@@ -47,6 +47,11 @@ export default function SearchBox({
 				style={styles.logo}
 				resizeMode="contain"
 			/>
+			<Image
+				source={require("../assets/images/mz-flag.png")}
+				style={styles.flag}
+				resizeMode="contain"
+			/>
 			<TextInput
 				ref={inputRef}
 				style={[styles.input, focused && styles.focusedInput]}
@@ -100,6 +105,14 @@ const styles = StyleSheet.create({
 		width: "100%",
 		height: 60,
 		marginBottom: 5,
+	},
+	flag: {
+		position: "absolute",
+		right: 0,
+		width: 60,
+		height: 60,
+		marginBottom: 5,
+		marginRight: 15,
 	},
 	input: {
 		paddingRight: 60,
