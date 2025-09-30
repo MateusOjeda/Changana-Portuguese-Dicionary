@@ -1,4 +1,5 @@
 import { View, StyleSheet, Text } from "react-native";
+import { AppText } from "../components/wrapper/AppText";
 
 interface ErrorProps {
 	error: Error;
@@ -7,7 +8,7 @@ interface ErrorProps {
 export function Error({ error }: ErrorProps) {
 	return (
 		<View style={styles.centered}>
-			<Text style={styles.errorText}>{String(error)}</Text>
+			<AppText style={styles.errorText}>{String(error)}</AppText>
 		</View>
 	);
 }

@@ -1,16 +1,11 @@
 import React, { useState, useCallback } from "react";
-import {
-	Text,
-	View,
-	StyleSheet,
-	Platform,
-	TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, Platform, TouchableOpacity } from "react-native";
 import { DictionaryItem } from "../types";
 import { router } from "expo-router";
 import filter from "lodash/filter";
 import { useFocusEffect } from "@react-navigation/native";
 import { useFavorites } from "../hooks/useFavorites";
+import { AppText } from "../components/wrapper/AppText";
 
 type DailyWordProps = {
 	dictionaryData: DictionaryItem[];
@@ -49,10 +44,10 @@ export function FavoriteBox({ dictionaryData }: DailyWordProps) {
 	return (
 		<View style={styles.container}>
 			{favorites.length === 0 ? (
-				<Text style={styles.emptyText}>
+				<AppText style={styles.emptyText}>
 					Você ainda não adicionou palavras aos favoritos. Clique no
 					coração para adicioná-la!
-				</Text>
+				</AppText>
 			) : (
 				<>
 					{favorites.map((word) => (
@@ -61,7 +56,7 @@ export function FavoriteBox({ dictionaryData }: DailyWordProps) {
 							onPress={() => handlePress(word.toString())}
 							style={styles.button}
 						>
-							<Text style={styles.buttonText}>{word}</Text>
+							<AppText style={styles.buttonText}>{word}</AppText>
 						</TouchableOpacity>
 					))}
 				</>

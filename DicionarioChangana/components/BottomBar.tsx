@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, TouchableOpacity, StyleSheet } from "react-native";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import Feather from "@expo/vector-icons/Feather";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { useBottomBarActions } from "../hooks/useBottomBarActions";
+import { AppText } from "../components/wrapper/AppText";
 
 export function BottomBar() {
 	const { handleEmail, handleDedicatory, handleRateApp } =
@@ -12,18 +13,22 @@ export function BottomBar() {
 	return (
 		<View style={styles.container}>
 			<TouchableOpacity onPress={handleEmail} style={styles.button}>
-				<Fontisto name="email" size={35} color="#d7d7d7" />
-				<Text style={styles.buttonText}>E-mail</Text>
+				<Fontisto name="email" size={35} color="#ffffff9d" />
+				<AppText style={styles.buttonText}>Sugestões</AppText>
 			</TouchableOpacity>
 
 			<TouchableOpacity onPress={handleDedicatory} style={styles.button}>
-				<FontAwesome5 name="praying-hands" size={35} color="#d7d7d7" />
-				<Text style={styles.buttonText}>Dedicatória</Text>
+				<FontAwesome5
+					name="praying-hands"
+					size={35}
+					color="#ffffff9d"
+				/>
+				<AppText style={styles.buttonText}>Dedicatória</AppText>
 			</TouchableOpacity>
 
 			<TouchableOpacity onPress={handleRateApp} style={styles.button}>
-				<Feather name="star" size={35} color="#d7d7d7" />
-				<Text style={styles.buttonText}>Avaliar</Text>
+				<Feather name="star" size={35} color="#ffffff9d" />
+				<AppText style={styles.buttonText}>Avaliar</AppText>
 			</TouchableOpacity>
 		</View>
 	);

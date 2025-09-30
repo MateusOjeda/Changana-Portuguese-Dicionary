@@ -1,6 +1,7 @@
 import { MaterialIcons } from "@expo/vector-icons";
-import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
+import { TouchableOpacity, View, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { AppText } from "../components/wrapper/AppText";
 
 export default function NotFound() {
 	const navigation = useNavigation();
@@ -13,12 +14,12 @@ export default function NotFound() {
 				alignItems: "center",
 			}}
 		>
-			<Text
+			<AppText
 				style={{ fontSize: 18, textAlign: "center", marginBottom: 30 }}
 			>
 				Os detalhes da palavra não puderam ser carregados no momento.
 				Tente novamente depois.
-			</Text>
+			</AppText>
 			<TouchableOpacity
 				style={styles.button}
 				onPress={() => navigation.goBack()}

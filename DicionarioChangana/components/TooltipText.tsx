@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, Pressable, Modal, StyleSheet } from "react-native";
+import { View, Pressable, Modal, StyleSheet } from "react-native";
 import { abbrMap, abreviationsSplit } from "../utils/abreviations";
 import { splitNumberedAndLetteredItems } from "../utils/splitNumberedAndLetteredItems";
+import { AppText } from "../components/wrapper/AppText";
 
 type TooltipTextProps = {
 	text: string;
@@ -21,11 +22,11 @@ export default function TooltipText({ text }: TooltipTextProps) {
 						key={index}
 						onPress={() => setTooltip(abbrMap[part])}
 					>
-						<Text style={styles.highlight}>{part}</Text>
+						<AppText style={styles.highlight}>{part}</AppText>
 					</Pressable>
 				);
 			}
-			return <Text key={index}>{part}</Text>;
+			return <AppText key={index}>{part}</AppText>;
 		});
 	};
 
@@ -37,21 +38,23 @@ export default function TooltipText({ text }: TooltipTextProps) {
 			{textItems.map((item) => (
 				<View key={item.itemName}>
 					{item.itemName !== "" && (
-						<Text style={styles.textItem}>{item.itemName}</Text>
+						<AppText style={styles.textItem}>
+							{item.itemName}
+						</AppText>
 					)}
-					<Text style={styles.text}>
+					<AppText style={styles.text}>
 						{renderAbreviationsText(item.itemText)}
-					</Text>
+					</AppText>
 					{item.subItems?.map((item) => (
 						<View key={item.itemName}>
 							{item.itemName !== "" && (
-								<Text style={styles.textSubItem}>
+								<AppText style={styles.textSubItem}>
 									{item.itemName}
-								</Text>
+								</AppText>
 							)}
-							<Text style={styles.subText}>
+							<AppText style={styles.subText}>
 								{renderAbreviationsText(item.itemText)}
-							</Text>
+							</AppText>
 						</View>
 					))}
 				</View>
@@ -65,9 +68,9 @@ export default function TooltipText({ text }: TooltipTextProps) {
 			>
 				<View style={styles.overlay}>
 					<View style={styles.tooltip}>
-						<Text style={styles.tooltipText}>{tooltip}</Text>
+						<AppText style={styles.tooltipText}>{tooltip}</AppText>
 						<Pressable onPress={() => setTooltip(null)}>
-							<Text style={styles.close}>Fechar</Text>
+							<AppText style={styles.close}>Fechar</AppText>
 						</Pressable>
 					</View>
 				</View>

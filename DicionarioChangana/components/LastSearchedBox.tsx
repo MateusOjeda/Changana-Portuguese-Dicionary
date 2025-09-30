@@ -1,17 +1,12 @@
 import React, { useState, useCallback } from "react";
-import {
-	Text,
-	View,
-	StyleSheet,
-	Platform,
-	TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, Platform, TouchableOpacity } from "react-native";
 import { DictionaryItem } from "../types";
 import { router } from "expo-router";
 import { useFocusEffect } from "@react-navigation/native";
 import { SearchedWord } from "../types";
 import { useSearchedWord } from "../hooks/useSearchedWord";
 import { runSearch } from "../utils/searchUtils";
+import { AppText } from "../components/wrapper/AppText";
 
 type LastSearchedProps = {
 	dictionaryData: DictionaryItem[];
@@ -47,9 +42,9 @@ export function LastSearchedBox({ dictionaryData }: LastSearchedProps) {
 	return (
 		<View style={styles.container}>
 			{searchedWords.length === 0 ? (
-				<Text style={styles.emptyText}>
+				<AppText style={styles.emptyText}>
 					Últimas palavras pesquisadas aparecerão aqui.
-				</Text>
+				</AppText>
 			) : (
 				<View style={styles.grid}>
 					{searchedWords.map((s, index) => {
@@ -66,9 +61,9 @@ export function LastSearchedBox({ dictionaryData }: LastSearchedProps) {
 									isLastRow && { borderBottomWidth: 0 },
 								]}
 							>
-								<Text style={styles.gridItemText}>
+								<AppText style={styles.gridItemText}>
 									{s.word}
-								</Text>
+								</AppText>
 							</TouchableOpacity>
 						);
 					})}

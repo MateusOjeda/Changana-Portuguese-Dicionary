@@ -2,6 +2,7 @@ import { Pressable, Text, View, StyleSheet } from "react-native";
 import { router } from "expo-router";
 import { DictionaryItem } from "../types";
 import Feather from "@expo/vector-icons/Feather";
+import { AppText } from "../components/wrapper/AppText";
 
 export function DictionaryListItem({ item }: { item: DictionaryItem }) {
 	return (
@@ -18,7 +19,7 @@ export function DictionaryListItem({ item }: { item: DictionaryItem }) {
 					<Feather name="clock" size={24} color="black" />
 				)}
 
-				<Text style={styles.title}>{item.word}</Text>
+				<AppText style={styles.title}>{item.word}</AppText>
 			</View>
 		</Pressable>
 	);

@@ -1,11 +1,12 @@
 import { useLocalSearchParams } from "expo-router";
-import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import FavoriteButton from "../../components/FavoriteButton";
 import TooltipText from "../../components/TooltipText";
 import { useSearchedWord } from "../../hooks/useSearchedWord";
+import { AppText } from "../../components/wrapper/AppText";
 
 export default function WordMeaning() {
 	const { id, meaning, word } = useLocalSearchParams<{
@@ -28,12 +29,9 @@ export default function WordMeaning() {
 				>
 					<Feather name="arrow-left" size={35} color="#4e4e4eff" />
 				</TouchableOpacity>
-				<Text style={styles.word}>{word}</Text>
+				<AppText style={styles.word}>{word}</AppText>
 				<FavoriteButton word={word} />
 			</View>
-			{/* <View style={styles.meaningCard}>
-				<Text style={styles.meaning}>{meaning}</Text>
-			</View> */}
 			<View style={styles.meaningCard}>
 				<TooltipText text={meaning} />
 			</View>

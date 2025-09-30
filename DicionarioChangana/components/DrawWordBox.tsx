@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import {
-	Text,
 	View,
 	TouchableOpacity,
 	StyleSheet,
@@ -10,6 +9,7 @@ import {
 import { useDrawWord } from "../hooks/useDrawWord";
 import { DictionaryItem } from "../types";
 import { router } from "expo-router";
+import { AppText } from "../components/wrapper/AppText";
 
 type DailyWordProps = {
 	dictionaryData: DictionaryItem[];
@@ -59,13 +59,13 @@ export function DrawWordBox({ dictionaryData }: DailyWordProps) {
 					style={styles.button}
 					onPress={handleDrawNewWord}
 				>
-					<Text style={styles.buttonText}>Sortear palavra</Text>
+					<AppText style={styles.buttonText}>Sortear palavra</AppText>
 				</TouchableOpacity>
 				<TouchableOpacity
 					style={styles.button}
 					onPress={handleMeaningPress}
 				>
-					<Text style={styles.buttonText}>Ver significado</Text>
+					<AppText style={styles.buttonText}>Ver significado</AppText>
 				</TouchableOpacity>
 			</View>
 		</View>

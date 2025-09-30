@@ -1,5 +1,4 @@
 import {
-	Text,
 	View,
 	StyleSheet,
 	Platform,
@@ -9,6 +8,7 @@ import { useDailyWord } from "../hooks/useDailyWord";
 import { DictionaryItem } from "../types";
 import { runSearch } from "../utils/searchUtils";
 import { router } from "expo-router";
+import { AppText } from "../components/wrapper/AppText";
 
 type DailyWordProps = {
 	dictionaryData: DictionaryItem[];
@@ -30,8 +30,8 @@ export function DailyWordBox({ dictionaryData }: DailyWordProps) {
 	return (
 		<TouchableWithoutFeedback onPress={handlePress}>
 			<View style={styles.container}>
-				<Text style={styles.title}>{word}</Text>
-				<Text style={styles.meaning}>{meaning}</Text>
+				<AppText style={styles.title}>{word}</AppText>
+				<AppText style={styles.meaning}>{meaning}</AppText>
 			</View>
 		</TouchableWithoutFeedback>
 	);

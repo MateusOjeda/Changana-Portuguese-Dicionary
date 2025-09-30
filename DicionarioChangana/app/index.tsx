@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { Text, View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDictionaryData } from "../hooks/useDictionaryData";
 import { useLocalDate } from "../hooks/useLocalDate";
@@ -20,6 +20,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import * as NavigationBar from "expo-navigation-bar";
 import { router } from "expo-router";
 import { useEffect } from "react";
+import { AppText } from "../components/wrapper/AppText";
 
 export default function Index() {
 	const { isLoading, data: fullData, error } = useDictionaryData();
@@ -105,10 +106,12 @@ export default function Index() {
 					>
 						<View style={styles.sectionContainer}>
 							<View style={styles.dailyWordHeader}>
-								<Text style={styles.title}>Palavra do dia</Text>
-								<Text style={styles.todayDateText}>
+								<AppText style={styles.title}>
+									Palavra do dia
+								</AppText>
+								<AppText style={styles.todayDateText}>
 									{useLocalDate()}
-								</Text>
+								</AppText>
 							</View>
 							{!isLoading && fullData.length > 0 && (
 								<DailyWordBox dictionaryData={fullData} />
@@ -116,25 +119,25 @@ export default function Index() {
 						</View>
 
 						<View style={styles.sectionContainer}>
-							<Text style={styles.title}>
+							<AppText style={styles.title}>
 								Últimas pesquisadas
-							</Text>
+							</AppText>
 							{!isLoading && fullData.length > 0 && (
 								<LastSearchedBox dictionaryData={fullData} />
 							)}
 						</View>
 
 						<View style={styles.sectionContainer}>
-							<Text style={styles.title}>
+							<AppText style={styles.title}>
 								Melhore seu vocabulário
-							</Text>
+							</AppText>
 							{!isLoading && fullData.length > 0 && (
 								<DrawWordBox dictionaryData={fullData} />
 							)}
 						</View>
 
 						<View style={styles.sectionContainer}>
-							<Text style={styles.title}>Favoritas</Text>
+							<AppText style={styles.title}>Favoritas</AppText>
 							{!isLoading && fullData.length > 0 && (
 								<FavoriteBox dictionaryData={fullData} />
 							)}
