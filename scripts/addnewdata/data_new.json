@@ -1,0 +1,550 @@
+[
+	{
+		"word": "ó",
+		"meaning": "interj. (de chamamento) hée, héyi, yáhoo interj."
+	},
+	{
+		"word": "oásis",
+		"meaning": "s. m. xihlovomananga (xi-svi)."
+	},
+	{
+		"word": "obcecação",
+		"meaning": "s. f. a) (Med.) (cegueira incompleta) riphumé (ri). b) (ofuscação) kutlúnyá, kutsúnyá (ku). c) (obscurecimento do espírito) nurhu (mu-mi) (plural: milurhu/minurhu), riphumé (ri). d) (obstinação no erro) kuwóméléla ká xíhóxo (ku), kunkó ká xíhóxo ideo., nkokorholo (mu-mi)."
+	},
+	{
+		"word": "obcecado",
+		"meaning": "adj. -á kuwóméléla ká xíhóxo, -á kunkó ká xíhóxo, -á nkókórhólo loc. adj."
+	},
+	{
+		"word": "obcecar",
+		"meaning": "1. a) (tornar cego, cegar) ku-dláyá mahlu u t. b) (ofuscar) kutlúnyá, kutsúnyá v. t. c) (turvar o entendimento, perturbar, cegar) kupfítá mápímo; kudida nhlókó v. t. d) (tornar contumaz no erro) kulútlísá, kuwómélélísa ká xíhóxo v. caus., kuvangela nkokorholo v apl. 2. v. pron. (tornar-se contumaz no erro) kuwóméléla ká xíhóxo, kuvá ní nkókórhólo u, kunkó ká xíhóxo ideo."
+	},
+	{
+		"word": "obedecer",
+		"meaning": "u. t. & i. a) kuyingisa, kuyingiseta, kutwá, kutwísísá u t. & i. b) (ceder) kupfumela v. t. & i."
+	},
+	{
+		"word": "obediência",
+		"meaning": "s. f. kuyingisa, kuyingiseta, kutwá, kutwísísá (ku)."
+	},
+	{
+		"word": "obediente",
+		"meaning": "adj. 2 gen. -á kúyíngísa, -á kúyíngíséta, á kutwá, á kutwísísá loc. adj."
+	},
+	{
+		"word": "obesidade",
+		"meaning": "s. f. (med.) vubombofú (vu)."
+	},
+	{
+		"word": "obeso",
+		"meaning": "adj. -á fúrhá, -á kukúlúka loc. adj., n'wárhumbu, mazambhana, mafúthá, khwíríxátíka (mu-va), bombofú (ri-ma)."
+	},
+	{
+		"word": "óbice",
+		"meaning": "s. m. nkánéto (mu-mi); xirhalánganya (xi-svi)."
+	},
+	{
+		"word": "óbito",
+		"meaning": "s. m. rifú (ri-ma)."
+	},
+	{
+		"word": "objecção",
+		"meaning": "s. f. a) (contestação) xikhálú (xi-svi). b) (oposição) vukánétí, vupfúkélí (vu). c) (obstáculo, óbice) xirhalánganya, xihínga (xi-sui), rihínga (ri-ti), mapháriyeta (ma)."
+	},
+	{
+		"word": "objectar",
+		"meaning": "v. t. & i. kukánétá, kuyálá, kukhálá v. t. & i."
+	},
+	{
+		"word": "objectivo",
+		"meaning": "1. adj. a) (relativo ao objecto) -á xikóngómélo loc. adj. b) (livre de interesses, de gostos, de preconceitos; imparcial) -á nkátlhélo, á nkálátlhélo; á kúlúláma, -á kúlúnga loc. adj. c) (que age rápido e não perde tempo em cogitações) -ngahálikí, -nganonókikí, -ngahonísikí, -ngananíkí loc. adj. d) (que não é evasivo; directo) -ngagégikí, -á kukóngómá loc. adj. 2. s. m. (aquilo que se pretende alcançar quando se realiza uma acção; propósito) nkóngóméto (mu-mi), xikóngómélo (xi-svi)."
+	},
+	{
+		"word": "objecto",
+		"meaning": "s. m. a) (qualquer substância sólida, líquida ou gasosa que ocupa lugar no espaço) nchúmú (mu-mi), xilo (xi-svi). b) (matéria, assunto de que se trata) mhaká, nhlókómhaká (yi-ti). c) (motivo, causa) xivangelo, xisusumeto (xi-svi). d) (propósito, intuito) nkongométo (mu-mi). e) (Ling.) riyendlíwa (ri). || [objecto da passiva]: ritwísiwá (ri)."
+	},
+	{
+		"word": "oblação",
+		"meaning": "s. f. a) (oferenda feita a Deus) mhámbá (yi-ti). b) (qualquer oferta ou oferecimento) nyíkó (vi-ti)."
+	},
+	{
+		"word": "obliquar",
+		"meaning": "1. v. i. a) (caminhar de través, obliquamente) kuvoyama, kubzekela, kuhleyama v. i. b) (tergiversar) kuhámbúká, kugega, kutíngáwúla v i. 2. v. t. (tornar obliquo, desviar) kuhámbúkísa v. caus. 3. v. pron. (tornar-se obliquo) kuvoyama, kubzekela, kuhleyama v. i."
+	},
+	{
+		"word": "obliquidade",
+		"meaning": "s. f. kubzekama, kuhleyama (ku) mbzekamu, nhleyamu (mu-mi)."
+	},
+	{
+		"word": "oblíquo",
+		"meaning": "adj. -á kúhléyáma, á kupéngáná, -á kúbzékéla, á kúvóyáma, -á kúkhéyáma, -á kukheyá loc. adj."
+	},
+	{
+		"word": "obra",
+		"meaning": "s. f. a) (trabalho, acção; efeito) ntirho (mu-mi). b) (trabalho feito) xiyendlwá, xiyendlo (xi-svi). c) (edifício em construção) óbra (ri-ma). (P). || [obra de arte] lumbá (ri-ma). || [obras de artes plásticas]: xixongi (xi-svi). || [obras públicas] vuyákí hí ximfúmú (vu)."
+	},
+	{
+		"word": "obra-prima",
+		"meaning": "s. f. lumbá rá kuhetíséka, lumbánkulu (ri-ma)."
+	},
+	{
+		"word": "obrar",
+		"meaning": "1. v. t. a) (fazer, executar) kutirha vu t. b) (construir, fabricar) kumaha, kumáká v t c) (produzir, fazer) kuyendla kuyenca, kumaha v. t. d) (causar) kuvanga, kupfúxá v. t. 2. v. i. a) (fazer um trabalho; agir; actuar) kutirha, kuyendla | kuyenca, kumaha v. i. b) (surtir efeito (um medicamento)) kutirha i. 3. v. i. & pron. (defecar) kutirhúmá pron., kuhúmá v i. (euf.)"
+	},
+	{
+		"word": "obsequiar",
+		"meaning": "v. t. a) (prestar obséquios, serviço) kusízá, kupfuna t.; kutwélá vusíwana v. apl. b) (presentear) kuchachazela, kunyíká xihíwa t. c) (ext.) (regalar, dar bom acolhimento (podendo incluir boa comida)) kub'úsísá, kutsakisa v caus."
+	},
+	{
+		"word": "obséquio",
+		"meaning": "s. m. a) (acto de obsequiar) kub'úsísá, kutsakisa v. caus. b) (favor, serviço) kusízá, kupfuna, kutwélá vusíwana (ku), vusízí, vukumpfákumpfá (vu)."
+	},
+	{
+		"word": "obreiro",
+		"meaning": "s. m. mutirhéli; mutirhi (mu-va)."
+	},
+	{
+		"word": "obsequiosidade",
+		"meaning": "s. f. kusízá, kupfuna; kutwélá vusíwana (ku), vusízí, vukumpfákumpfá (vu)."
+	},
+	{
+		"word": "obsequioso",
+		"meaning": "adj. (atencioso) -á málwándla, -á vúmúnhu; -á vúkumpfákumpfá loc. adj."
+	},
+	{
+		"word": "obrigação",
+		"meaning": "s. f. a) (compulsão, forçamento) nsíndzíso (mu-mi) nsíndzisá (yi-ti), xikólokólo, xikhómela (xi-svi), xikómóndhela (xi-svi). (P) incomodar. b) (dever) mfánélo (yi-ti), xibóhó (xi-svi)."
+	},
+	{
+		"word": "obrigado",
+		"meaning": "interj. (Diz o homem.). || [obrigada] interj. (Diz a mulher.); inkomu, khanímámbu; ahéé interj., ndzakhensa, ndzatlángélá, ndzab'onga loc. interj."
+	},
+	{
+		"word": "obrigar",
+		"meaning": "v t. kusíndzísá, kukhómélá v. t., kukómóndhéla v. t. (P) incomodar."
+	},
+	{
+		"word": "obrigatoriamente",
+		"meaning": "adv xikólokólo adv., hí xisíndzisá, hí nsíndzíso, hí lhí loc. adv."
+	},
+	{
+		"word": "obscenidade",
+		"meaning": "s. f. xirhúkú (xi-svi), nhlambhá (yi-ti)."
+	},
+	{
+		"word": "obsceno",
+		"meaning": "adj. -á kúyíla, á kurhúká, -á nhlambhá, -á tínganá loc. adj."
+	},
+	{
+		"word": "obscurecer",
+		"meaning": "1. v. t. a) (reduzir a claridade a) kumphumisa u caus., kuyendla munyamá v. t. b) (confundir, baralhar) kudida v. t., kudílíngánísa v. caus. c) (encobrir, esconder) kufíhlá u t. 2. v pron. a) (tornar-se obscuro, tornar-se sombrio ou triste) kufíphálá v i. b) (tornar-se escuro, sombrio (o dia)) kumphuma, kumphumela, kupfala u i."
+	},
+	{
+		"word": "obscurecido",
+		"meaning": "adj. -á kúmphúma loc. adj."
+	},
+	{
+		"word": "obscuridade",
+		"meaning": "s. f. xinyamá (xi-svi), vunyamí, vumphumé (vu). || [obscuridade do dia]: mphumelo (mu-mi)."
+	},
+	{
+		"word": "obscuro",
+		"meaning": "adj. -á kuphámbhá; -á kukálá kúkhánya loc. adj."
+	},
+	{
+		"word": "observação",
+		"meaning": "s. f. a) (acto ou efeito de observar) kulángútísa, kuxíyá, kuxópáxópa (ku), langútíso (mu-mi), vuxópáxópi (vu). b) (cumprimento, observância) kulandza, kuxixima, kuhlayisa, kuvékísá (ku), nxiximo (mu-mi), vuhlayisi (vu). c) (reparo, advertência, censura leve) kutshinya, kuvhúsá (ku), xitsúndzúxu, xibasopiso (xi-svi). d) (parecer, opinião) mavónéla (ma). e) (exame, análise) xikámbélo (xi-svi)."
+	},
+	{
+		"word": "observador",
+		"meaning": "adj. & s. m. a) (o que observa, vê com atenção) mulangútísi, muxópáxópi (mu-va). b) (cumpridor) mulandzi, muxiximi, muhlayisi, muvékísí (mu-va). c) (o que adverte, censura levemente) mutsúndzúxí, mutshinyi, muvhúsí, mubasopisi (mu-va). d) (o que examina, analisa) mukámbéli; mukámbí, mupómpólí (mu-va). e) (mirone) muhlaleli (mu-va)."
+	},
+	{
+		"word": "observância",
+		"meaning": "s. f. (cumprimento, prática) kulandza, kuxixima, kuhlayisa, kuvékísá (ku), nxiximo (mu-mi), vuhlayisi (vu)."
+	},
+	{
+		"word": "observar",
+		"meaning": "v. t. a) (examinar minuciosamente, estudar) kulángútísa, kuxíyá, kuxópáxópa v. t. b) (notar) kuxíyá v. t. c) (cumprir, obedecer, por exemplo, a lei) kulandza, kuxixima, kuhlayisa, kuvékísá v. t. d) (advertir) kutsúndzúxá, kutshinya, kuvhúsá v. t. e) (dar parecer) kuvéká mavónéla, kunyíká mavónéla v. t. e) (examinar, analisar) kukámbá, kukámbísísa, kupómpólá v. t."
+	},
+	{
+		"word": "observável",
+		"meaning": "adj. 2 gen. -á kuvónéká loc. adj."
+	},
+	{
+		"word": "obstáculo",
+		"meaning": "s. m. a) (embaraço, dificuldade) xirhalánganyá, xikárhátu (xi-svi). mapháriyeta (ma). b) (impedimento, empecilho) ntsándzékíso (mu-mi). xithindhekiso, xisívélo (xi-svi). (grande obstáculo) xihíngó (xi-svi) rihinga (ri-ti)."
+	},
+	{
+		"word": "obstante",
+		"meaning": "adj. (que obsta, impedidor) xirhalánganya, xisírhélo (xi-svi). || [não obstante]: (apesar de, no entanto, contudo) hambí tánu loc.conj."
+	},
+	{
+		"word": "obstar",
+		"meaning": "v. t. (impedir) kusívélá, kupfalela, kusírhélá v. t."
+	},
+	{
+		"word": "obstinação",
+		"meaning": "s. f. (casmurrice, insistência no erro, insensibilidade ao conselho) nkanú (yi-ti), kuwóméléla ká xíhóxo (ku), kunkó ká xíhóxo ideo., nkokorholo (mu-mi). xitsanyalala, xitatanana (xi-svi), vun'ón'ón'ó, vutsétsémbu (vu)."
+	},
+	{
+		"word": "obstinado",
+		"meaning": "adj. a) (teimoso) -á nkanú, á cíki á chíki loc. adj., munónón'hwí, nkanyisi (mu-va). b) (tenaz) -á kusíkíséla; -á kuwóméléla, -á kusímámá, -á kutíyá, -á kukhó, -á kunkó loc. adj."
+	},
+	{
+		"word": "obstinar",
+		"meaning": "1. v. t. (tornar obstinado) kunónón'hwísa v. caus. 2. v. pron. (manter-se na teima ou erro; porfiar) kuwóméléla, kuphikelela u t., kukhó, kunkó ideo. Ex.: Ele obstina-se na ideia de abandonar os filhos! Áli khó, ní móyá wá kutsúkúlá vana!"
+	},
+	{
+		"word": "obstrução",
+		"meaning": "s. f. kupfaleka, kusívéká, kugqiveka (ku), mpfaleko (mu-mi)."
+	},
+	{
+		"word": "obstruir",
+		"meaning": "1. v. t. a) (fechar, tapar, vedar) kusívá v. t. b) (entupir) kugqiva v. t. 2. v. pron. kusívéká, kugqiveka v. neutr. pass."
+	},
+	{
+		"word": "obstrutor",
+		"meaning": "adj. & s. m. a) (a pessoa que impede a passagem, ou tapa a vista) musívélí, musírhéli; mupfaleli (mu-va). b) (a coisa que impede a passagem, ou tapa avista) xisívélí, xisírhéli, xipfaleli (xi-svi). c) (o que entope) xigqivi (xi-svi)."
+	},
+	{
+		"word": "obtenção",
+		"meaning": "s. f. kukuma (ku)."
+	},
+	{
+		"word": "obter",
+		"meaning": "v t. kukuma u t."
+	},
+	{
+		"word": "ocanheira",
+		"meaning": "s. f. (Moç.) (Bot.) nkanyí (mu-mi)."
+	},
+	{
+		"word": "ocar",
+		"meaning": "u t. kuguba, kukweva, kukovotla v. t."
+	},
+	{
+		"word": "ocarina",
+		"meaning": "s. f. xigovíya (xi-svi)."
+	},
+	{
+		"word": "ocasião",
+		"meaning": "s. f. nkarhí, nkámá, mulhana (mu-mi), khambí (ri-ma), xikúndlá, xivangelo (xi-svi); mukhandlu (mu-mi). (fig.) [cf. brecha]."
+	},
+	{
+		"word": "ocasional",
+		"meaning": "adj. 2 gen. -á kútshuka -húmélélá, -á kútshuka -yéndléká, -á xítshuké loc. adj. Ex.: convite ocasional xirhámbu xá kútshuka xíhúmélélá."
+	},
+	{
+		"word": "ocasionar",
+		"meaning": "v. t. (originar) kutumbuluxa, kupfúxá v. caus., kuvanga, kutsámbá u t."
+	},
+	{
+		"word": "ocaso",
+		"meaning": "s. m. a) (desaparecimento de um astro no horizonte, do lado oeste) kupélá, kuchóná (ku). b) (ocidente, oeste) vupélájámbu (vu), mpélájámbu (mu). c) (fig.) (termo, fim) kuchóná (ku). (fig.)."
+	},
+	{
+		"word": "occipício",
+		"meaning": "s. m. xikosí (xi-svi)."
+	},
+	{
+		"word": "occipital",
+		"meaning": "1. adj. 2 gen. (relativo ou pertencente ao occipício) -á xíkosí loc. adj. 2. s. m. (occipício) xikosí (xi-svi)."
+	},
+	{
+		"word": "oceano",
+		"meaning": "s. m. lwándlénkulu (ri-ma), rikhúlú (ri-ti)."
+	},
+	{
+		"word": "ocidental",
+		"meaning": "1. adj. 2 gen. -á mpélájámbu, -á vupélájámbú loc. adj. 2. s. 2 gen. (o natural ou habitante do ocidente) mupélájámbu (mu-va)."
+	},
+	{
+		"word": "ocidente",
+		"meaning": "s. m. vupélájámbu (vu), mpélájámbu (mu)."
+	},
+	{
+		"word": "ociosidade",
+		"meaning": "s. f. vulóló, vulovhá (vu)."
+	},
+	{
+		"word": "ocioso",
+		"meaning": "adj. & s. m. mulólóhí (mu-va), lóló, lovhá (ri-ma)."
+	},
+	{
+		"word": "oclusão",
+		"meaning": "s. f. kupfaleka, kusívéká, kugqiveka (ku), mpfaleko (mu-mi)."
+	},
+	{
+		"word": "oclusiva",
+		"meaning": "s. f. (consoante oclusiva) xitátísi xá mpfáléko; xipfaleki (xi-svi)."
+	},
+	{
+		"word": "oclusivo",
+		"meaning": "adj. -á kúpfála, -á mpfáléko loc. adj."
+	},
+	{
+		"word": "oco",
+		"meaning": "adj. -á phangá, á kúgúbíwa loc. adj."
+	},
+	{
+		"word": "ocorrência",
+		"meaning": "s. f. (acontecimento) xihúmélélo, xiyendleko xiyenceko, ximaheko (xi-svi). húmélélo (yi-ti). || [ocorrência inusitada]: xiwelo (xi-svi)."
+	},
+	{
+		"word": "ocorrer",
+		"meaning": "ui. a) (acontecer) kuhúméléla, kuyendleka kuyenceka, kumaheka v. i. b) (vir ao pensameto) kutsúndzúka, kukúmbúka v. t."
+	},
+	{
+		"word": "ocre",
+		"meaning": "1. adj. 2 gen. -á kúpshúká xitsúmána; -á tsúmána loc. adj. 2. s. 2 gen. tsúmána (ri-ma)."
+	},
+	{
+		"word": "octógono",
+		"meaning": "s. m. (polígono de oito lados) yinhlánhungú (yi-ti), xinhlánhungú (xi-svi)."
+	},
+	{
+		"word": "ocular",
+		"meaning": "adj. 2 gen. -á tíhló; á kuvóná loc. adj."
+	},
+	{
+		"word": "óculo",
+		"meaning": "s. m. a) (luneta, binóculo) xivónákúle (xi-svi). b) (geralmente no plural) (qualquer instrumento composto de lentes que auxiliam a vista) fasitela (ri-ma). (geralmente no plural). (A) venster, wokolo (ri-ma). (geralmente no plural). (P)."
+	},
+	{
+		"word": "ocultação",
+		"meaning": "s. f. kutumbeta, kufíhlá, kutlhota (ku), ntumbeto, mfíhló, ntlhoto (mu-mi)."
+	},
+	{
+		"word": "ocultamente",
+		"meaning": "adu hí xihúndlá, áxihúndléni, hí xítumbélela; ákútúmbéléni loc. adv."
+	},
+	{
+		"word": "ocultar",
+		"meaning": "1. v. t. a) (esconder (algo)) kutumbeta v caus., kufíhlá, kutlhota v. t. b) (esconder (algo) a) kufíhlélá, kutlhotela v. apl. 2. u pron. kutumbela i, kutifíhlá, kutitlhótá v pron."
+	},
+	{
+		"word": "ocultas",
+		"meaning": "elem. s. f. pl. (usado no adv. às ocultas) [às ocultas]: (às escondidas, modo oculto) hí xihúndlá, áxihúndléni, ákufíhlákáléni loc. adv."
+	},
+	{
+		"word": "ocultismo",
+		"meaning": "s. m. masalamusi (ma)."
+	},
+	{
+		"word": "oculto",
+		"meaning": "adj. -á kufíhléká, -á kútúmbétíwa loc. adj."
+	},
+	{
+		"word": "ocupação",
+		"meaning": "s. f. a) (serviço, função) ntirho (mu-mi). b) (invasão) kuhlásélá, kudurnela; kub'anga | kuvanga, kuphanga (ku), nhlásélo, mub'angu muvangu; muphangu (mu-mi)."
+	},
+	{
+		"word": "ocupado",
+		"meaning": "adj. a) (que se ocupa; absorvido ou preocupado com alguma tarefa) -á kútírha, -á kuvíndlávíndleka loc. adj. b) (em que há muito que fazer) -á kutálá hí ntírho, -á ntirho wunyíngi loc. adj. c) (que não está livre ou vago; preenchido) -á kukálá ndháwú; -á kutálá; -á kukháméká loc. adj. d) (obtido por concessão ou conquista; tomado) -á kutékíwá; -á kúphángíwa, -á kúb'ángíwa kuvangiwa loc. adj."
+	},
+	{
+		"word": "ocupar",
+		"meaning": "1. v. t. a) (tomar posse de; conquistar o direito de) kutéká v. t. b) (invadir; conquistar) kuhlásélá, kudumela, kuphanga, kub'anga kuvanga v. t. c) (encher completamente; preencher) kutátá . t. d) (residir, habitar) kutshámá i. e) (consumir o tempo ou a duração de; consumir) kutéká, kuhétá v. t. f) (constar de; fazer parte de) kukumeka . i. g) (fazer uso de; dar trabalho ou ocupação a) kutirhisa v caus. 2. v. pron. (dedicar-se a) kutinyíkétéla u pron., kuchívíríkéla v apl."
+	},
+	{
+		"word": "ode",
+		"meaning": "s. f. risímú (ri-ti); xithókózélo (xi-svi)."
+	},
+	{
+		"word": "odiar",
+		"meaning": "u t. kuvéngá, kunyényá, kuhámbúlá, kuzóndhá v. t."
+	},
+	{
+		"word": "odiento",
+		"meaning": "adj. -á kunyényéntsá loc. adj."
+	},
+	{
+		"word": "ódio",
+		"meaning": "s. m. rivéngó (ri) (sem plural), rhíyeta riyeta (ri-ma). || [ódio visceral]: nyongwa (yi-ti). (fig.) [cf. bilis], vuhlúngú (vu). (fig.) [cf. veneno]."
+	},
+	{
+		"word": "odioso",
+		"meaning": "adj. a) -á kunyényéntsá loc. adj. b) (reprovável, condenável) -á kúsóléka; -á kubíhá loc. adj."
+	},
+	{
+		"word": "odor",
+		"meaning": "s. m. phunga, sema risema (ri-ma), móyá, munun'hwé (mu-mi)."
+	},
+	{
+		"word": "odorante",
+		"meaning": "adj. 2 gen. -á kúnún'hwéla loc. adj."
+	},
+	{
+		"word": "odorífero",
+		"meaning": "adj. -á kúnún'hwéla loc. adj."
+	},
+	{
+		"word": "odoroso",
+		"meaning": "adj. -á kúnún'hwéla loc. adj."
+	},
+	{
+		"word": "odre",
+		"meaning": "s. m. ndongá (yi-ti), gula (ri-ma). || [odre de pele, para o transporte de leite]: gujú (ri-ma)."
+	},
+	{
+		"word": "oeste",
+		"meaning": "1. adj. 2 gen. -á vupélájámbu, á mpélájámbu loc. adj. 2. s. m. vupélájámbu, mpélájámbu adv."
+	},
+	{
+		"word": "ofegante",
+		"meaning": "adj. 2 gen. -á kuhéfémútéka, á kudákádákéka, á kutlhákámá, á kutlháka-tlháka loc. adj."
+	},
+	{
+		"word": "ofegar",
+		"meaning": "v. i. (arfar, respirar a custo) kuhéfémútéka, kudákádáka, kudákádákéka, kutlhákámá, kutlhákámútéka u t., kutlháka-tlháka, kudáka-dáka-dáka ideo."
+	},
+	{
+		"word": "ofego",
+		"meaning": "s. m. héfémútéko (mu-mi), mahika (ma), vuhéfuhéfu (vu)."
+	},
+	{
+		"word": "ofender",
+		"meaning": "v. t. a) (magoar, desagradar) kukhúngúványísa, kuvávísá v. caus., kutlhava, kunyongonya u 1. b) (prejudicar) kuwó-nhélá, kuhoxela v. apl. c) (ir contra as regras ou preceitos de) kutlúlá, kuhoxela v 1."
+	},
+	{
+		"word": "ofendido",
+		"meaning": "adj. & s. m. -á kukhúngúványísíwa; -á kuwónhélíwa loc. adj., mukhúngúványísiwá; muwónhéliwá (mu-va)."
+	},
+	{
+		"word": "ofensa",
+		"meaning": "s. f. a) (injúria, agravo) xiwónhó; xikhúngúványíso (xi-svi). b) (difamação, insulto) xifíngétó, xihehlo, xirhúkú (xi-svi). c) (lesão, dano) muqhito, mukhúvázo (mu-mi)."
+	},
+	{
+		"word": "ofensiva",
+		"meaning": "s. f. (acto ou situação de quem ataca, acometida) kudumela, kuhlásélá, kugivela (ku), ndhumelo, nhlásélo, mugivelo (mu-mi), vudumeli, vuhláséli (vu)."
+	},
+	{
+		"word": "ofensivo",
+		"meaning": "adj. a) (desgostar, magoar, desagradar) -á kukhúngúványísa, -á kuvávísá, -á kútlháva loc. adj. b) (prejudicial) -á kuwónhélá, -á kúhóxéla loc. adj. c) (que ataca) -á kuhlásélá, -á kúdúméla loc. adj."
+	},
+	{
+		"word": "ofensor",
+		"meaning": "s. m. a) (o que prejudica) muwónhélí, muhoxeli (mu-va). b) (o que desgosta, magoa, desagrada) mukhúngúványísi, munyongoli (mu-va). c) (o que vai contra as regras ou preceitos de) mutlúlí, muwó-nhélí, muhoxelí (mu-va). Ex.: ofensor da lei mutlúli wá náwu."
+	},
+	{
+		"word": "oferecer",
+		"meaning": "1. v. t. a) kunyíká v. t. b) (apresentar) kukómbísá u t. 2. u pron. kutinyíkéla, kutikómbísá v. pron."
+	},
+	{
+		"word": "oferecimento",
+		"meaning": "s. m. a) (acto ou efeito de oferecer) kunyíká, kuhá (ku). b) (acto ou efeito de oferecer-se) kutinyíkétá (ku), vutinyíkéti (vu). c) (expressão da vontade de servir, de ser útil ou agradável a alguém) malwandla (ma). d) (oferta) nyíkó (yi-ti)."
+	},
+	{
+		"word": "oferenda",
+		"meaning": "s. f. a) (presente, oferta) nyikó (vi-ti); xihíwa (xi-svi). b) (Rel.) nyíkó (yi-ti), nyíkélo munyíkélo (mu-mi), mhámbá (yi-ti)."
+	},
+	{
+		"word": "oferta",
+		"meaning": "s. f. a) (presente) xihíwa, xinyíkó (xi-svi). b) (donativo) nyíkó (yi-ti). c) (Rel.) nyíkó (yi-ti), nyíkélo munyíkélo (mu-mi)."
+	},
+	{
+		"word": "ofertante",
+		"meaning": "adj. 2 gen. & s. 2 gen. munyíki, munyíkéli (mu-va)."
+	},
+	{
+		"word": "ofertar",
+		"meaning": "u t. kunyíká, kuhá; kunyíkélá v t"
+	},
+	{
+		"word": "ofertório",
+		"meaning": "s. m. a) (oferta, donativo) xihíwa, xinyíkó (xi-svi). b) (Rel.) nyíkó (vi-ti), nyíkélo | munyikéło (mu-mi). || [ofertório, originalmente recolhido à entrada da igreja]: nyangwá (yi-ti)."
+	},
+	{
+		"word": "oficial",
+		"meaning": "1. adj. a) (conforme as ordens legais) -á náwu loc. adj. b) (relativo às pessoas pertencentes ao alto funcionalismo, aos altos dignitários) -á ximfúmú loc. adj. Ex.: visita oficial riyendzo rá ximfúmú. 2. s. m. a) (aquele que tem um ofício ou emprego) mutirhi (mu-va). b) (empregado inferior a quem cabe fazer citações, intimações, etc.; oficial de diligências) n'qúlumé, ndhúna (yi-ti)."
+	},
+	{
+		"word": "oficiar",
+		"meaning": "v. i. (celebrar o oficio religioso) kufámbísá ntírho; kurhángélá ntírho vi"
+	},
+	{
+		"word": "oficina",
+		"meaning": "s. f. vumákélo (vu), ofisína (ri-ma). (P), chápu (ri-ma). ( ) workshop."
+	},
+	{
+		"word": "oficio",
+		"meaning": "s. m. a) (profissão) ntirho (mu-mi). b) (carta, ou manifesto, quando reproduzidos e mandados a muitas pessoas) nyiwa (yi-ti)."
+	},
+	{
+		"word": "ofuscação",
+		"meaning": "s. f. a) (impedimento de ver ou de ser visto, encobrimento) kusívélá, kusírhélá; kusívélíwa, kusírhélíwa (ku). b) (turvação da vista) kutlúnyá kutsúnyá, kutlúnyíwá | kutsúnyíwá (ku). c) (perda de brilho) kufíphálá (ku), mfíphálu (mu-mi)."
+	},
+	{
+		"word": "ofuscamento",
+		"meaning": "s. m. a) (impedimento de ver ou de ser visto, encobrimento) kusívélá, kusírhélá; kusívélíwa, kusírhélíwa (ku). b) (turvação da vista) kutlúnyá kutsúnyá, kutlúnyíwá | kutsúnyíwá (ku). c) (perda de brilho) kufíphálá (ku), mfíphálu (mu-mi)."
+	},
+	{
+		"word": "ofuscar",
+		"meaning": "1. ut. a) (impedir de ver ou de ser visto; ocultar, encobrir, obscurecer) kusívélá, kusírhélá v. t. b) (turvar a vista de; deslumbrar) kutlúnyá | kutsúnyá v. t. 2. v. i. (turvar a vista; deslumbrar) kutlúnyá, kutsúnyá . i. 3. v. pron. a) (perder o brilho) kufíphálá u. i. b) (toldar-se, obscurecer-se) kumphuma v. i."
+	},
+	{
+		"word": "ogre",
+		"meaning": "s. m. xitúkúlúmúkhumba (xi-svi)."
+	},
+	{
+		"word": "ogro",
+		"meaning": "s. m. xitúkúlúmúkhumba (xi-svi)."
+	},
+	{
+		"word": "oh",
+		"meaning": "interj. a) (ena) ée, íxi, óhó, yóo interj. b) (de admiração) hóo, háwu, yhú interj. c) (de lamentação) álee interj. d) (de surpresa e censura - entre homens) hóyi, háyi interj."
+	},
+	{
+		"word": "oiro",
+		"meaning": "ouro s. m. golídi, góle (ri-ma). (1) gold, wóru (ri-ma). (P)."
+	},
+	{
+		"word": "oitavo",
+		"meaning": "1. num. -á vuntlhánu ní -nhárhu; -á vunhungú loc. adj. 2. s. m. vuntlhánu ní -nhárhu; vunhungú (vu)."
+	},
+	{
+		"word": "oitenta",
+		"meaning": "num. ntlhánú wá makúmé ní (makúmé) manhárhu (mu), khúnhungú (mu-va)."
+	},
+	{
+		"word": "oito",
+		"meaning": "num. ntlhánu ní nhárhu; nhungú (mu)."
+	},
+	{
+		"word": "oitocentos",
+		"meaning": "num. ntlhánú wá mádzána ní (mádzana) manhárhu (mu), madzananhungú, dzanhungú (mu-va)."
+	},
+	{
+		"word": "olaria",
+		"meaning": "s. f. a) (fábrica de produtos cerâmicos) vuvúmbélo (vu). b) (indústria de oleiro) vuvúmbí (vu). c) (conjunto de peças de olaria) svibza svá vumba; svákuvúmbíwá (svi)."
+	},
+	{
+		"word": "oleiro",
+		"meaning": "s. m. muvúmbí (mu-va)."
+	},
+	{
+		"word": "óleo",
+		"meaning": "s. m. mafúrhá (ma)."
+	},
+	{
+		"word": "olfacto olfato",
+		"meaning": "s. m. kunun'huta (ku), vunun'hutu (vn)."
+	},
+	{
+		"word": "olfato",
+		"meaning": "olfacto s. m. kunun'huta (kn), vunun'hutu (vu)."
+	},
+	{
+		"word": "olhada",
+		"meaning": "s. f. kulángútányána, kuhlómélá (ku)."
+	},
+	{
+		"word": "olhadela",
+		"meaning": "s. f. kulángútányána, kuhlómélá (ku)."
+	},
+	{
+		"word": "olhado",
+		"meaning": "1. adj. -á kulángútíwa loc. adj. 2. s. m. (feitiço) madambí (ma)."
+	}
+]
