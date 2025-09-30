@@ -1,5 +1,11 @@
 import { useLocalSearchParams } from "expo-router";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import {
+	StyleSheet,
+	View,
+	TouchableOpacity,
+	ScrollView,
+	Platform,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -32,9 +38,14 @@ export default function WordMeaning() {
 				<AppText style={styles.word}>{word}</AppText>
 				<FavoriteButton word={word} />
 			</View>
-			<View style={styles.meaningCard}>
-				<TooltipText text={meaning} />
-			</View>
+			<ScrollView
+				showsVerticalScrollIndicator={true}
+				contentContainerStyle={{ paddingBottom: 80 }}
+			>
+				<View style={styles.meaningCard}>
+					<TooltipText text={meaning} />
+				</View>
+			</ScrollView>
 		</SafeAreaView>
 	);
 }
@@ -52,15 +63,22 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 	},
 	meaningCard: {
+		...Platform.select({
+			ios: {
+				shadowColor: "#000",
+				shadowOffset: { width: 0, height: 2 },
+				shadowOpacity: 0.2,
+				shadowRadius: 4,
+			},
+			android: {
+				elevation: 4,
+				shadowColor: "#000",
+			},
+		}),
 		backgroundColor: "#fff",
 		padding: 16,
 		borderRadius: 12,
 		width: "100%",
-		shadowColor: "#000",
-		shadowOffset: { width: 0, height: 2 },
-		shadowOpacity: 0.1,
-		shadowRadius: 4,
-		elevation: 3, // para Android
 	},
 	meaning: {
 		fontSize: 18,

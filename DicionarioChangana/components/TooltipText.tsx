@@ -197,9 +197,8 @@ const styles = StyleSheet.create({
 		marginTop: 4,
 	},
 	incrementContainer: {
-		flexDirection: "row", // layout buttons horizontally
-		justifyContent: "flex-end", // push buttons to the right
-		marginTop: 20,
+		flexDirection: "row",
+		justifyContent: "flex-end",
 	},
 	incrementButton: {
 		width: 38,
