@@ -11,7 +11,7 @@ export function useBottomBarActions() {
 			await Linking.openURL(url);
 		} else {
 			Alert.alert(
-				"Erro ao Abrir E-mail",
+				"E-mail",
 				`Por favor, envie um e-mail para ${APP_CONFIG.supportEmail}`
 			);
 		}
