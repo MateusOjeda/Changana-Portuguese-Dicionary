@@ -4,6 +4,9 @@ This app will help young people in Mozambique learn Portuguese more easily, espe
 
 This app does not collect, store, or share any personal information of users. No analytics, ads, login, or in-app purchases are used.
 
+Dedicatory to Bento Sitoé for the dictionary data:
+https://books.google.com.br/books/about/Dicion%C3%A1rio_Changana_Portugu%C3%AAs.html?id=HacaAQAAIAAJ&redir_esc=y
+
 I chose to use react native with Expo CLI (not React Native CLI) to make it easier
 
 1. Initialize the basic expo application
