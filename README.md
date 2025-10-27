@@ -19,7 +19,11 @@ Dictionary data courtesy of Bento Sitoé:
 ## Video Demo
 
 Check out the video demo of the app here:
-[YouTube Video Link]
+https://youtube.com/shorts/7Pgsnrje8lo
+
+## 🖼️ App Screenshots
+
+![App Screenshots](./assets/Screenshots.png)
 
 ## Running Locally with Expo Go
 
