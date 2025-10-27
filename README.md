@@ -1,29 +1,94 @@
-# Changana-Portuguese-Dicionary
+# Changana-Portuguese Dictionary
 
-This app will help young people in Mozambique learn Portuguese more easily, especially in villages with a weak education system.
+This app helps young people in Mozambique learn Portuguese more easily, especially in villages with limited education. It is designed as a unique educational tool, providing value where no other Shangana-Portuguese dictionary app exists.
 
-This app does not collect, store, or share any personal information of users. No analytics, ads, login, or in-app purchases are used.
+The app does **not** collect, store, or share any personal information. There are no analytics, ads, login, or in-app purchases.
 
-Dedicatory to Bento Sitoé for the dictionary data:
-https://books.google.com.br/books/about/Dicion%C3%A1rio_Changana_Portugu%C3%AAs.html?id=HacaAQAAIAAJ&redir_esc=y
+## Dedicatory
 
-I chose to use react native with Expo CLI (not React Native CLI) to make it easier
+Dictionary data courtesy of Bento Sitoé:
+[Dicionário Changana-Português](https://books.google.com.br/books/about/Dicion%C3%A1rio_Changana_Portugu%C3%AAs.html?id=HacaAQAAIAAJ&redir_esc=y)
 
-1. Initialize the basic expo application
+## Features
 
+-   Full dictionary functionality for Shangana-Portuguese translations
+-   Simple, fast, and responsive interface
+-   Educational tool for young people in remote areas
+-   Offline usage, no backend required
+
+## Video Demo
+
+Check out the video demo of the app here:
+[YouTube Video Link]
+
+## Running Locally with Expo Go
+
+1. Initialize the basic Expo application:
+
+```bash
 npx create-expo-app@latest
+```
 
-2. Login to expo:
+2. Login to Expo:
 
+```bash
 npx expo login
+```
 
-3. Start application with Fast Refresh
+3. Start the application with Fast Refresh:
 
-npx expo start
+```bash
+npx expo start -c
+```
+
+You can open the app directly on your phone using **Expo Go**.
+
+## 💻 Run Locally
+
+To run using **Expo Go** with tunnel (so others can access):
+
+```bash
+npx expo start --tunnel
+```
 
 ---
 
-Obs.: To run sdk Android on windows, I had to install it on another disk, so I should write this env:
-$env:ANDROID_HOME="D:\\AndroidStudioSdk"
+## 📦 Android Builds
+
+-   **APK for testing:**
+
+```bash
+eas build -p android --profile preview
+```
+
+-   **File for Play Store (AAB):**
+
+```bash
+eas build --platform android
+```
 
 ---
+
+## 🚀 Publish for Portfolio
+
+To update the project and generate a public link for your portfolio:
+
+```bash
+eas update --branch preview --message "First publication"
+```
+
+---
+
+## 🛠️ Technologies Used
+
+-   **React Native**
+-   **Expo / Expo Router**
+-   **EAS Build / EAS Update**
+
+## Maintainer
+
+This project is maintained by the author.
+
+## License
+
+This project is free to use and open-source for educational purposes.
