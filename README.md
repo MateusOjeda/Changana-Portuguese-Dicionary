@@ -16,10 +16,16 @@ Dictionary data courtesy of Bento Sitoé:
 -   Educational tool for young people in remote areas
 -   Offline usage, no backend required
 
+## 🔗 Download the App
+
+https://play.google.com/store/apps/details?id=com.mateusojeda.DicionarioChangana
+
+> ⚠️ Available in Mozambique, Zimbabwe, South Africa and Brazil
+
 ## Video Demo
 
 Check out the video demo of the app here:
-https://youtube.com/shorts/7Pgsnrje8lo
+https://youtube.com/shorts/ftK2KEskyl0
 
 ## 🖼️ App Screenshots
 
