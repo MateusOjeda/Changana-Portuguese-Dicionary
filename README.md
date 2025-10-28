@@ -29,7 +29,8 @@ https://youtube.com/shorts/ftK2KEskyl0
 
 ## 🖼️ App Screenshots
 
-![App Screenshots](./assets/Screenshots.png)
+<img src="https://i.ibb.co/ZpSxHBrG/Screenshots.png" width="1000">
+
 
 ## Running Locally with Expo Go
 
