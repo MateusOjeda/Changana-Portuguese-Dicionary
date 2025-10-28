@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { DictionaryItem } from "../types";
-import Data from "../assets/data.json";
+import Data from "@/assets/data.json";
 
 export function useDictionaryData() {
 	const [isLoading, setIsLoading] = useState(false);

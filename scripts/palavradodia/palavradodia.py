@@ -3,14 +3,15 @@ from datetime import datetime
 from datetime import datetime, timedelta
 import random
 
+filename = 'filter_data_output.json'
 try:
-    with open('filter_data_output.json', 'r', encoding="utf-8") as file:
+    with open(filename, 'r', encoding="utf-8") as file:
         data = json.load(file)
 except FileNotFoundError:
-    raise Exception("Error: 'data.json' not found. Please create the file.")
+    raise Exception(f"Error: {filename} not found. Please create the file.")
 
 except json.JSONDecodeError:
-    raise Exception("Error: Invalid JSON format in 'data.json'.")
+    raise Exception(f"Error: Invalid JSON format in {filename}.")
 
 try:
     with open("1000palavras.txt", "r", encoding="utf-8") as f:
@@ -26,22 +27,15 @@ def generate_date_from_today(plus_days: int):
     today = datetime.today()
     return (today + timedelta(days=plus_days)).strftime("%Y%m%d") 
 
-n=0
+n=1
+data_daily_word = {}
 for i in range(len(palavras_txt)):
     palavra = palavras_txt[i]
-    achou = False
     for j in range(len(data)):
         if data[j]['word'] == palavra:
-            data[j]['dailyKey'] = generate_date_from_today(n)
-            print(f"id: {data[j]['id']}, word: {data[j]['word']}, dailyKey: {data[j]['dailyKey']}")
-            achou = True
+            data_daily_word[n] = data[j]['word']
             n+=1
             break
-    if not achou:
-        data[j]['dailyKey'] = "00000000"
 
-print(n)
-print(data[177])
-
-with open('data_with_dailyKey.json', 'w', encoding="utf-8") as file:
-    json.dump(data, file, ensure_ascii=False)
+with open('daily_words.json', 'w', encoding="utf-8") as file:
+    json.dump(data_daily_word, file, ensure_ascii=False)
