@@ -1,7 +1,8 @@
 import pandas as pd
 from unidecode import unidecode
 import re
-
+import json
+import unicodedata
 
 # -----------------------------------------------
 # 🔧 Ler arquivo de lista de todas as palavras em português
@@ -131,6 +132,7 @@ for index, row in df.iterrows():
     df.at[index, "word"] = word
     df.at[index, "meaning"] = meaning
 
+
 # -----------------------------------------------
 # 💾 Exportação
 # -----------------------------------------------
@@ -139,5 +141,53 @@ df = df.reset_index(drop=True).reset_index().rename(columns={"index": "id"})
 df.drop(columns=["raw"], inplace=True)
 
 df.to_json('output.json', orient='records', force_ascii=False)
+
+
+# -----------------------------------------------
+# Adiciona dados extras que faltavam
+# -----------------------------------------------
+
+try:
+    with open('data_new.json', 'r', encoding="utf-8") as file:
+        data_new = json.load(file)
+except FileNotFoundError:
+    raise Exception("Error: 'data.json' not found. Please create the file.")
+
+try:
+    with open('output.json', 'r', encoding="utf-8") as file:
+        data = json.load(file)
+except FileNotFoundError:
+    raise Exception("Error: 'data.json' not found. Please create the file.")
+
+data_missing = []
+for i in range(len(data_new)):
+    found = False
+    for j in range(len(data)):
+        if data[j]["word"] == data_new[i]["word"]:
+            found = True
+            break
+    
+    if not found:
+        data_missing.append(data_new[i])
+
+# Now making new DATA
+
+def normalize_string(s):
+    # Normalize unicode (accents)
+    s = unicodedata.normalize('NFKD', s)
+    # Keep only ASCII letters/numbers
+    s = ''.join(c for c in s if c.isalnum() or c == " ")
+    # Convert to lowercase
+    return s.lower()
+
+data = data_missing + data
+
+data = sorted(data, key=lambda x: normalize_string(x["word"]))
+
+for i in range(len(data)):
+    data[i]["id"] = i
+
+with open('output.json', 'w', encoding="utf-8") as file:
+    json.dump(data, file, ensure_ascii=False)
 
 print("✅ Processamento concluído com sucesso!")
